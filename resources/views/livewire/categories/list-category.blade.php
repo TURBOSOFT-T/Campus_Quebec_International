@@ -30,7 +30,7 @@
                     <th>Photo</th>
                     <th>Nom categorie</th>
                     <th>Nombre formation(s)</th>
-                    <th>Nombre évènement(s)</th>
+                   
                     <th>Nombre actualité(s)</th>
                     <th>Description</th>
                    
@@ -59,7 +59,7 @@
                             {{ $cat->nom }}
                         </td>
                         <td>{{$cat->formations->count()}}</td>
-                        <td>{{$cat->events->count()}}</td>
+                     
                         <td>{{$cat->blogs->count()}}</td>
                         <td>
                             

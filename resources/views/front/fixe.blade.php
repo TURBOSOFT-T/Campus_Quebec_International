@@ -44,8 +44,12 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+   
 
 
+    @yield('blogs')
+
+  @livewireStyles
 </head>
 
 
@@ -123,9 +127,20 @@
         <div class="header-sticky">
             <nav class="navbar navbar-expand-lg">
                 <div class="container">
+
+                    <style>
+    .logo-small {
+    width: 100px;
+    height: 100px;
+}
+.logo-footer {
+    width: 100px;
+    height: 100px;
+}
+</style>
                     <!-- Logo Start -->
                     <a class="navbar-brand" href="./">
-                        <img src="{{ Storage::url($config->logo) }}" alt="Logo">
+                        <img src="{{ Storage::url($config->logo) }}"  class="logo-small" alt="Logo">
                     </a>
                     <!-- Logo End -->
 
@@ -140,6 +155,24 @@
                                 </li>
                                 <li class="nav-item"><a class="nav-link"
                                         href="{{ route('about') }}">{{ \App\Helpers\TranslationHelper::TranslateText('A propos de nous') }}</a>
+                                </li>
+
+                                 <li class="nav-item submenu"><a class="nav-link" href="#">Formations</a>
+                                    <ul>                                        
+                                        <li class="nav-item"><a class="nav-link" href="#">Pending</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="#">Pending</a></li>
+                                      
+                                        
+                                    </ul>
+                                </li>
+
+                                 <li class="nav-item submenu"><a class="nav-link" href="#">Certifications</a>
+                                    <ul>                                        
+                                        <li class="nav-item"><a class="nav-link" href="#">Pending</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="#">Pending</a></li>
+                                      
+                                        
+                                    </ul>
                                 </li>
                                 <li class="nav-item"><a class="nav-link" href="#">
                                         {{ \App\Helpers\TranslationHelper::TranslateText('Actualités') }}
@@ -157,11 +190,43 @@
                                         <a href="{{ url('login') }}">Connexion</a>
                                     </li>
                                 @else
-                                    @if (auth()->user()->role != 'client')
-                                        <li class="nav-item"><a href="{{ url('dashboard') }}"
-                                                class="nav-item nav-link">Dashboard</a>
-                                        </li>
-                                    @endif
+                                 
+
+                                     <li class="nav-item submenu"><a class="nav-link" href="#">
+                                         @if (auth()->user()->role != 'client')
+                                                Dashboard
+                                            @else
+                                                {{ \App\Helpers\TranslationHelper::TranslateText('Mon compte') }}
+                                            @endif
+                                     </a>
+                                    <ul>  
+                                         @if (auth()->user()->role != 'client')
+                                                <li  class="nav-item">
+                                                    <a class="nav-link" href="{{ url('dashboard') }}">Dashboard</a>
+                                                </li>
+                                            @endif   
+                                            
+                                            {{--  <li class="nav-item">
+                                                <a class="nav-link" href="{{ route('account') }}">
+                                                    {{ \App\Helpers\TranslationHelper::TranslateText('Mon compte') }}
+                                                </a>
+                                            </li> --}}
+
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="{{ route('logout') }}"
+                                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+
+                                                    {{ \App\Helpers\TranslationHelper::TranslateText('Déconnexion') }}
+                                                </a>
+                                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                                    style="display: none;">
+                                                    @csrf
+                                                </form>
+                                       
+                                    </ul>
+                                </li>
+
+
 
                                 @endguest
 
@@ -200,12 +265,12 @@
                                                             alt="en">
                                                         English
                                                     </button>
-                                                    {{--  <button type="submit" name="locale" value="de"
+                                                      <button type="submit" name="locale" value="de"
                                                         class="dropdown-item">
                                                         <img src="https://img.icons8.com/color/20/germany-circular.png"
                                                             alt="de">
                                                         Deutsch
-                                                    </button> --}}
+                                                    </button> 
 
                                                 </div>
                                             </div>
@@ -318,7 +383,7 @@
                     <div class="about-footer">
                         <!-- Footer Logo Start -->
                         <div class="footer-logo">
-                            <img src="{{ Storage::url($config->logo) }}" alt="">
+                            <img src="{{ Storage::url($config->logo) }}" class="logo-footer" alt="">
                         </div>
                         <!-- Footer Logo End -->
 
@@ -366,7 +431,7 @@
                 <div class="col-lg-3 col-md-4">
                     <!-- About Links Start -->
                     <div class="about-working-hour">
-                        <h3>working hours</h3>
+                        <h3>{{ \App\Helpers\TranslationHelper::TranslateText('Horaires') }}</h3>
                         <ul>
                             <li>mon to fri : 10:00 to 6:00</li>
                             <li>sat : 10:00AM to 3:00PM</li>
@@ -379,11 +444,19 @@
                 <div class="col-lg-3 col-md-4">
                     <!-- About Links Start -->
                     <div class="about-service-list">
-                        <h3>more services</h3>
+                        <h3>{{ \App\Helpers\TranslationHelper::TranslateText('Pages') }}</h3>
                         <ul>
-                            <li><a href="#">manual therapy</a></li>
-                            <li><a href="#">chronic pain</a></li>
-                            <li><a href="#">hand therapy</a></li>
+                           <li class="nav-item"><a 
+                                        href="{{ route('about') }}">{{ \App\Helpers\TranslationHelper::TranslateText('A propos de nous') }}</a>
+                                </li>
+                            <li class="nav-item"><a class="nav-link" href="#">
+                                        {{ \App\Helpers\TranslationHelper::TranslateText('Actualités') }}
+                                    </a></li>
+
+
+                                <li class="nav-item"><a class="nav-link" href="{{ route('contact') }}">
+                                        {{ \App\Helpers\TranslationHelper::TranslateText('Contact') }}
+                                    </a></li>
                         </ul>
                     </div>
                     <!-- About Links End -->
@@ -558,6 +631,8 @@
     <script src="/js/wow.js"></script>
     <!-- Main Custom js file -->
     <script src="/js/function.js"></script>
+
+       @livewireScripts
 
 </body>
 

@@ -97,7 +97,7 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <b>Servive</b>
+                                        <b>Service</b>
                                     </td>
                                     <td>
                                         <input type="checkbox" class="form-check-input" name="permissions[]" value="service_view" @checked($personnel->hasPermissionTo('service_view'))> Voir
@@ -131,21 +131,39 @@
                                     </td>
                                 </tr>
 
+                                  <tr>
+                                    <td>
+                                        <b>Inscription</b>
+                                    </td>
+                                    <td>
+                                        <input type="checkbox" class="form-check-input" name="permissions[]" value="inscription_view" @checked($personnel->hasPermissionTo('inscription_view'))> Voir
+                                    </td>
+                                    <td>
+                                        <input type="checkbox" class="form-check-input" name="permissions[]" value="inscription_add" @checked($personnel->hasPermissionTo('inscription_add'))> Ajouter
+                                    </td>
+                                    <td>
+                                        <input type="checkbox" class="form-check-input" name="permissions[]" value="inscription_edit" @checked($personnel->hasPermissionTo('inscription_edit'))> Modifier
+                                    </td>
+                                    <td>
+                                        <input type="checkbox" class="form-check-input" name="permissions[]" value="inscription_delete" @checked($personnel->hasPermissionTo('inscription_delete'))> Supprimer
+                                    </td>
+                                </tr>
+
                                 <tr>
                                     <td>
-                                        <b>Evènement</b>
+                                        <b>Actualités</b>
                                     </td>
                                     <td>
-                                        <input type="checkbox" class="form-check-input" name="permissions[]" value="event_view" @checked($personnel->hasPermissionTo('event_view'))> Voir
+                                        <input type="checkbox" class="form-check-input" name="permissions[]" value="blog_view" @checked($personnel->hasPermissionTo('blog_view'))> Voir
                                     </td>
                                     <td>
-                                        <input type="checkbox" class="form-check-input" name="permissions[]" value="event_add" @checked($personnel->hasPermissionTo('event_add'))> Ajouter
+                                        <input type="checkbox" class="form-check-input" name="permissions[]" value="blog_add" @checked($personnel->hasPermissionTo('blog_add'))> Ajouter
                                     </td>
                                     <td>
-                                        <input type="checkbox" class="form-check-input" name="permissions[]" value="event_edit" @checked($personnel->hasPermissionTo('event_edit'))> Modifier
+                                        <input type="checkbox" class="form-check-input" name="permissions[]" value="blog_edit" @checked($personnel->hasPermissionTo('blog_edit'))> Modifier
                                     </td>
                                     <td>
-                                        <input type="checkbox" class="form-check-input" name="permissions[]" value="event_delete" @checked($personnel->hasPermissionTo('event_delete'))> Supprimer
+                                        <input type="checkbox" class="form-check-input" name="permissions[]" value="blog_delete" @checked($personnel->hasPermissionTo('blog_delete'))> Supprimer
                                     </td>
                                 </tr>
                                 <tr>

@@ -7,6 +7,25 @@
             $service = DB::table('services')->get();
             $produit = DB::table('produits')->get();
         @endphp
+
+        
+ <head>
+    @section('blogs')
+        <meta name="author" content="belle.com">
+        <meta property="og:title" content="{{ $blog->nom }}">
+        <meta property="og:description" content="{{ $blog->description ?? '' }}">
+        <meta property="og:image" content="{{ $blog->photo }}">
+        <meta property="og:type" content="product">
+        <meta property="og:price:amount" content="{{ $blog->prix }} DT">
+
+        <meta property="og:availability" content="{{ $blog->statut }}">
+
+        <meta property="blog:availability" content="{{ $blog->statut }}">
+        <meta name="robots" content="index, follow">
+    @endsection
+    <link rel="stylesheet" href="path/to/zoom.css">
+<script src="path/to/zoom.js"></script>
+</head>
 <body>
 
  

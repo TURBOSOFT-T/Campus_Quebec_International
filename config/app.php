@@ -263,7 +263,7 @@ return [
     |--------------------------------------------------------------------------
     */
 
-    'description' => 'Le site  de vente en ligne',
-    'author' => 'The best author',
+    'description' => 'Bienvenue à Campus Québec International, votre passerelle linguistique vers l\'intégration au Canada.',
+    'author' => 'Campus Québec International ',
 
 ];

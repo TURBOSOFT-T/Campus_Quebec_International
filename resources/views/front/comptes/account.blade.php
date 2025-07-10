@@ -1,22 +1,12 @@
-@extends('layouts.blog')
-@php
-    $title = \App\Helpers\TranslationHelper::TranslateText(' Mon Compte');
-    $subtitle = \App\Helpers\TranslationHelper::TranslateText('Mon compte');
-@endphp
-
-@section('titre', \App\Helpers\TranslationHelper::TranslateText('Mon compte'))
-@section('blog')
-    @php
-        $config = DB::table('configs')->first();
-
-        $service = DB::table('services')->get();
-        $produit = DB::table('produits')->get();
-        // $categories = DB::table('categories')->first();
-    @endphp
-    <x-strickyHeader />
-    <x-sidebar />
-
-
+@extends('front.fixe')
+@section('titre', 'Accueil')
+@section('body')
+    <main>
+        @php
+            $config = DB::table('configs')->first();
+            $service = DB::table('services')->get();
+            $produit = DB::table('produits')->get();
+        @endphp
 
 
     <br><br>
@@ -696,8 +686,11 @@
 
 
 
-    <x-footer2 />
-    <x-mobileMenu />
-    <x-searchPopup />
-    <x-scroll-to-top />
+    </main>
+
+
+
+
+
+
 @endsection

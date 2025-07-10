@@ -73,10 +73,21 @@ class DatabaseSeeder extends Seeder
         'formation_edit',
         'formation_delete',
 
+          'inscription_view',
+        'inscription_add',
+        'inscription_edit',
+        'inscription_delete',
+
         'blog_view',
         'blog_add',
         'blog_edit',
         'blog_delete',
+
+
+          'certification_view',
+        'certification_add',
+        'certification_edit',
+        'certification_delete',
         
 
 

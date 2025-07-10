@@ -21,7 +21,7 @@
                     <div class="d-flex justify-content-between flex-wrap gap-4 me-12">
 
 
-                        <div class="d-flex align-items-center gap-4">
+                      {{--   <div class="d-flex align-items-center gap-4">
                             <div class="avatar avatar-lg">
                                 <div class="avatar-initial bg-label-warning rounded">
                                     <div>
@@ -34,7 +34,7 @@
                                 <p class="mb-0 fw-medium">Sponsors</p>
                                 <h4 class="text-warning mb-0">{{ $totalSponsors ?? '' }}</h4>
                             </div>
-                        </div>
+                        </div> --}}
                  {{--        <div class="d-flex align-items-center gap-4 me-6 me-sm-0">
                             <div class="avatar avatar-lg">
                                 <div class="avatar-initial bg-label-primary rounded">
@@ -94,7 +94,7 @@
                         </div>
 
 
-                        <div class="d-flex align-items-center gap-4">
+                       {{--  <div class="d-flex align-items-center gap-4">
                             <div class="avatar avatar-lg">
                                 <div class="avatar-initial bg-label-warning rounded">
                                     <div>
@@ -107,7 +107,7 @@
                                 <p class="mb-0 fw-medium">Evènements</p>
                                 <h4 class="text-warning mb-0">{{ $totalEvents ?? ' ' }}</h4>
                             </div>
-                        </div>
+                        </div> --}}
 
 
                         <div class="d-flex align-items-center gap-4">

@@ -11,7 +11,7 @@
                </div>
            @endif
            <form  wire:submit="save" data-toggle="validator" class="wow fadeInUp" data-wow-delay="0.25s" >
-               <div class="row">
+               <div class="row" >
                    <div class="form-group col-md-6 mb-4">
                        <input class="form-control" wire:model="nom" type="text"
                            placeholder="   {!! \App\Helpers\TranslationHelper::TranslateText('Votre nom') !!}" id="fullname" required="required">
@@ -74,7 +74,7 @@
                                <img src="/icons/kOnzy.gif" height="20" width="20" alt="" srcset="">
                            </span> 
                            {!! \App\Helpers\TranslationHelper::TranslateText('Envoyez le message') !!}</button>
-                       <div id="msgSubmit" class="h3 hidden"></div>
+                      {{--  <div id="msgSubmit" class="h3 hidden"></div> --}}
                    </div>
                </div>
            </form>
