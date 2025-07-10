@@ -68,13 +68,13 @@ class TestimonialController extends Controller
    
         $testimonial = Testimonial::create($request->all());
 
-        $notification = new notifications();
+       // $notification = new notifications();
     
         // $notification->url = route('details_comm', ['id' => $message->id]);
-          $notification->titre = "Nouveau message.";
-         $notification->message = "Envoyé passée par " . $testimonial->name;
-          $notification->type = "Témoignage";
-          $notification->save();
+         // $notification->titre = "Nouveau message.";
+        // $notification->message = "Envoyé passée par " . $testimonial->name;
+         // $notification->type = "Témoignage";
+        //  $notification->save();
     
        /*  if ($request->user()) {
             Mail::to($request->user()->email)->send(new TestimonialCreated($testimonial));

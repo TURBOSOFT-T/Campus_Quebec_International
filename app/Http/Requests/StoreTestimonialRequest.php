@@ -23,7 +23,7 @@ class StoreTestimonialRequest extends FormRequest
     {
         return [
             //
-            'message' => 'nullable|max:1000',
+            'message' => 'nullable|max:10000',
             'email' =>'nullables',
             'user_id' => 'nullable',
             'stars'=> 'nullable',

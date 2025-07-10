@@ -10,6 +10,14 @@
 
         <!DOCTYPE html>
         <html lang="zxx">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/magnific-popup/dist/magnific-popup.css">
+
+<!-- JS -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/magnific-popup/dist/jquery.magnific-popup.min.js"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
 
         <body>
 
@@ -1319,37 +1327,64 @@
             </div>
 
             <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-            <script>
-                $(document).ready(function() {
-                    $('#testimonialForm').on('submit', function(e) {
-                        e.preventDefault(); // Empêcher l'envoi classique du formulaire
+           <script>
+    $(document).ready(function() {
+        // Ajout du token CSRF dans l'en-tête de toutes les requêtes AJAX
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
 
-                        $.ajax({
-                            url: $(this).attr('action'),
-                            method: $(this).attr('method'),
-                            data: $(this).serialize(),
-                            success: function(response) {
-                                // Afficher le message de succès
-                                $('#testimonialModal').modal('hide'); // Fermer le modal
+        $('#testimonialForm').on('submit', function(e) {
+            e.preventDefault(); // Bloque l'envoi natif du formulaire
 
-                                $('#successMessage').text(
-                                    'Témoignage créé avec succès! Il sera valide après confirmation des administrateurs'
+            var form = $(this);
+            var submitButton = form.find('button[type="submit"]');
+            submitButton.prop('disabled', true); // Désactive le bouton pendant l'envoi
 
-                                ).show();
+            $.ajax({
+                url: form.attr('action'),
+                method: form.attr('method'),
+                data: form.serialize(),
+                success: function(response) {
+                    // Ferme le modal (attention au bon ID du modal)
+                    $('#exampleModal').modal('hide');
 
-                                setTimeout(function() {
-                                    location.reload();
-                                }, 5000);
-                            },
-                            error: function(response) {
-                                // Afficher un message d'erreur si nécessaire
-                                $('#errorMessage').text('Une erreur est survenue.')
-                                    .show(); // Afficher le message d'erreur
-                            }
-                        });
-                    });
-                });
-            </script>
+                    // Affiche un message de succès (assurez-vous que successMessage existe dans votre HTML)
+                    $('#successMessage').text(
+                        'Témoignage créé avec succès ! Il sera valide après confirmation des administrateurs.'
+                    ).fadeIn();
+
+                    // Réinitialise le formulaire
+                    form.trigger('reset');
+
+                    // Recharge la page après 5 secondes
+                    setTimeout(function() {
+                        location.reload();
+                    }, 5000);
+                },
+                error: function(xhr) {
+                    // Affiche le message d'erreur serveur (plus détaillé)
+                    let errorText = 'Une erreur est survenue.';
+                    if (xhr.responseJSON && xhr.responseJSON.message) {
+                        errorText = xhr.responseJSON.message;
+                    }
+                    $('#errorMessage').text(errorText).fadeIn();
+
+                    // Optionnel : masquer l'erreur après 5 secondes
+                    setTimeout(function() {
+                        $('#errorMessage').fadeOut();
+                    }, 5000);
+                },
+                complete: function() {
+                    submitButton.prop('disabled', false); // Réactive le bouton après la requête
+                }
+            });
+        });
+    });
+</script>
+
 
         </body>
 
