@@ -2,84 +2,129 @@
 @extends('front.fixe')
 @section('titre', $service->nom)
 @section('body')
+  @php
+    $config = DB::table('configs')->first();
+    
+    @endphp
+
     <main>
 
 
 
 
+    <!-- Page Header Start -->
+	<div class="page-header">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<!-- Page Header Box Start -->
+					<div class="page-header-box">
+						<h1 class="text-anime-style-2" data-cursor="-opaque">{{ \App\Helpers\TranslationHelper::TranslateText($service->nom ?? ' ')  }}</h1>
+						<nav class="wow fadeInUp">
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item"><a href="./">{{ \App\Helpers\TranslationHelper::TranslateText('Accueil ')  }}</a></li>
+                                <li class="breadcrumb-item"><a href="./">{{ \App\Helpers\TranslationHelper::TranslateText( 'Services ')  }}</a></li>
+								<li class="breadcrumb-item active" aria-current="page">{{ \App\Helpers\TranslationHelper::TranslateText($service->nom ?? ' ')  }}</li>
+							</ol>
+						</nav>
+					</div>
+					<!-- Page Header Box End -->
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Page Header End -->
 
-
-
-      <!-- service details area start -->
-      <div class="tp-sv-details-area fix pt-150 pb-145">
-         <div class="container">
+    <!-- Page Service Single Start -->
+    <div class="page-service-single">
+        <div class="container">
             <div class="row">
-               <div class="col-xl-7 col-lg-7">
-                  <div class="tp-sv-details-wrapper">
-                     <h4 class="tp-section-title mb-20">{{$service->nom}}</h4>
-                     <div class="tp-service-thumb">
-                        <img src="{{ Storage::url($service->image) }}" width="400 " height="400 "
-                        class="rounded shadow"  alt="">
-                     </div>
-                  
-                   
-                     <div class="row gx-30">
-                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
-                           <div class="tp-sv-details-banner">
-                              <img src="assets/img/service/details-1-2.jpg" alt="">
-                           </div>
+                <div class="col-lg-8">
+                    <!-- Service Single Content Start -->
+                    <div class="service-single-content">
+                        <!-- Service Featured Image Start -->
+                        <div class="service-featured-img">
+                            <figure class="reveal image-anime">
+                                <img src="{{ Storage::url($service->image) }}" alt="">
+                            </figure>
                         </div>
-                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
-                           <div class="tp-sv-details-banner">
-                              <img src="assets/img/service/details-1-3.jpg" alt="">
-                           </div>
+                        <!-- Service Featured Image End -->
+
+                        <!-- Service Entry Content Start -->
+                        <div class="service-entry">
+                            <h3 class="wow fadeInUp">{{ \App\Helpers\TranslationHelper::TranslateText($service->nom) }}</h3>
+
+                            <p class="wow fadeInUp" data-wow-delay="0.2s">
+                              
+                            {!! \App\Helpers\TranslationHelper::TranslateText($service->meta_description) !!}
+                           </p>
+                            
+                            <p class="wow fadeInUp" data-wow-delay="0.2s">
+                              
+                            {!! \App\Helpers\TranslationHelper::TranslateText($service->description) !!}
+                           </p>
+                            
+
+                          
+                            <!-- Service Entry Image End -->
                         </div>
-                     </div>
-                     <div class="tp-sv-details-text mt-50 mb-50">
-                        <h3 class="tp-sv-details-title mb-20">
-                            Description
-                        </h3>
-                        <p>{{$service->description}}</p>
-                     </div>
-                   
-                  </div>
-               </div>
-               <div class="col-xl-5 col-lg-5">
-                  <div class="tp-sv__sidebar-wrapper">
-                     <div class="tp-sv__sidebar-widget mb-50">
-                        <h4 class="tp-sv__sidebar-title mb-35"> Les autres Services</h4>
-                        <div class="tp-sv__sidebar-widget-content">
-                           
-                            <ul>
-                                @foreach ($services as $service )
-                                <li class="active">
-                                   <a href="{{ route('details-services', ['id' => $service->id, 'slug'=>Str::slug(Str::limit($service->nom, 10))]) , }}">
-                                     {{$service->nom}}
-                                      <span>
-                                         <svg width="15" height="10" viewBox="0 0 15 10" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                               d="M14.1543 4.99974L9.5111 9.644L8.7559 8.88987L12.1127 5.53307H0.0668316V4.4664H12.1127L8.7559 1.11067L9.5111 0.355469L14.1543 4.99974Z"
-                                               fill="currentcolor" />
-                                         </svg>
-                                      </span>
-                                   </a>
-                                </li>
+                        <!-- Service Entry Content End -->
+                    </div>
+                    <!-- Service Single Content End -->
+                </div>
+                <div class="col-lg-4">
+                    <!-- Service Sidebar Start -->
+                    <div class="service-sidebar">
+                        <!-- Service Categories List Start -->
+                        <div class="service-catagery-list wow fadeInUp">
+                            <h3>{{ \App\Helpers\TranslationHelper::TranslateText(' Tous les services')  }}</h3>
+                            <ul> @foreach ($services as $service)
+                                <li><a href="{{ route('details-services', ['id' => $service->id, 'slug'=>Str::slug(Str::limit($service->nom, 10))]) , }}">{{ \App\Helpers\TranslationHelper::TranslateText($service->nom ?? ' ')  }}</a></li>
                                 @endforeach
                                
-                             
-                             </ul>
-                           
-                        
+                            </ul>
                         </div>
-                     </div>
-                    
-                  </div>
-               </div>
+                        <!-- Service Categories List End -->
+
+                        <!-- Opening Hour Section Start -->
+                        <div class="opening-hour-section wow fadeInUp" data-wow-delay="0.25s">
+                            <h3>opening hours</h3>
+                            <ul>
+                                <li>mon to fri : 10:00 to 6:00</li>
+                                <li>sat : 10:00AM To 3:00PM</li>
+                                <li>sun : closed</li>
+                            </ul>
+                        </div>
+                        <!-- Opening Hour Section End -->
+
+                        <!-- Sidebar Cta Box Start -->
+               
+                        <!-- Sidebar Cta Box End -->
+                    </div>
+                    <!-- Service Sidebar End -->
+                </div>
             </div>
-         </div>
-      </div>
-      <!-- service details area end -->
+        </div>
+    </div>
+    <!-- Page Service Single End -->
+    
+    <!-- Our Scrolling Ticker Section Start -->
+   <div class="our-scrolling-ticker">
+                <!-- Scrolling Ticker Start -->
+                <div class="scrolling-ticker-box">
+                    <div class="scrolling-content">
+                        <span><img src="images/icon-sparkles.svg" alt="">Emergency No. : {{ $config->telephone }}</span>
+                        <span><img src="images/icon-sparkles.svg" alt="">For any additional inqueries :
+                            {{ $config->email }}</span>
+                        <span><img src="images/icon-sparkles.svg" alt="">Book Appointment: {{ $config->telephone }}</span>
+                        <span><img src="images/icon-sparkles.svg" alt="">Working Hourse : Mon to Fri : 10:00 To
+                            6:00 </span>
+                    </div>
+
+                    
+                </div>
+            </div>
+	<!-- Scrolling Ticker Section End -->  
 
     </main>
     @endsection

@@ -136,6 +136,10 @@ Route::get('/details-blogs/{id}/{slug}', [HomeController::class, 'details_blogs'
 Route::get('searchblog', [HomeController::class, 'searchblog'])->name("searchblog");
 
 
+///////////Services///////////////
+Route::get('/services', [HomeController::class, 'services'])->name('services');
+Route::get('/details-services/{id}/{slug}', [HomeController::class, 'details_services'])->name('details-services');
+
 ///////Events///////////////
 //Route::get('/news', [HomeController::class, 'blogs'])->name('news');
 Route::get('/category_event/{id}', [HomeController::class, 'events'])->where('id', '[0-9]+');

@@ -13,13 +13,13 @@
    
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <meta name="description" content="">
+  
     <!-- Favicons -->
     <link rel="apple-touch-icon" sizes="180x180"href="{{ Storage::url($config->icon) }}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ Storage::url($config->icon) }}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ Storage::url($config->icon) }}">
     <link rel="manifest" href="{{ Storage::url($config->icon) }}">
-    <meta name="description" content="COACH BELLE" />
+    <meta name="description" content="Campus Québec International" />
 
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -151,13 +151,19 @@
                         <div class="nav-menu-wrapper">
                             <ul class="navbar-nav mr-auto" id="menu">
                                 <li class="nav-item "><a class="nav-link" href="{{ url('/') }}">
-                                        {{ \App\Helpers\TranslationHelper::TranslateText('Home') }}
+                                        {{ \App\Helpers\TranslationHelper::TranslateText('Accueil') }}
                                     </a>
 
                                 </li>
-                                <li class="nav-item"><a class="nav-link"
+<li class="nav-item">
+    <a class="nav-link" href="{{ route('about') }}">
+        {{ ucfirst(\App\Helpers\TranslationHelper::TranslateText('A propos de nous')) }}
+    </a>
+</li>
+
+                                {{-- <li class="nav-item"><a class="nav-link"
                                         href="{{ route('about') }}">{{ \App\Helpers\TranslationHelper::TranslateText('A propos de nous') }}</a>
-                                </li>
+                                </li> --}}
 
                                 {{--  <li class="nav-item submenu"><a class="nav-link" href="#">Formations</a>
                                     <ul>                                        
@@ -176,9 +182,18 @@
                                         
                                     </ul>
                                 </li> --}}
-                                <li class="nav-item"><a class="nav-link" href="#">
+                                 <li class="nav-item submenu"><a class="nav-link" href="#">{{ \App\Helpers\TranslationHelper::TranslateText('Services') }}</a>
+                                    <ul> @foreach ($services as $service )
+                                        <li class="nav-item"><a class="nav-link" href="{{ route('details-services', ['id' => $service->id, 'slug'=>Str::slug(Str::limit($service->nom, 10))]) , }}">{{ \App\Helpers\TranslationHelper::TranslateText($service->nom) }}</a></li>
+                                        
+                                    @endforeach                                       
+                                        
+                                        
+                                    </ul>
+                                </li> 
+                              {{--   <li class="nav-item"><a class="nav-link" href="#">
                                         {{ \App\Helpers\TranslationHelper::TranslateText('Actualités') }}
-                                    </a></li>
+                                    </a></li> --}}
 
 
                                 <li class="nav-item"><a class="nav-link" href="{{ route('contact') }}">

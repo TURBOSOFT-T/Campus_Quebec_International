@@ -333,6 +333,26 @@ public function searchevent(SearchRequest $request)
     return view('front.events.index', compact('blogs', 'title','categories', 'lasts'));
 }
 
+///////////////Services////////////////////////////////////////////
+
+public function servicess()
+{
+  
+ 
+   // $categories = Category::with('blogs')->get();
+   $services = Service::select('*')->latest()
+  
+    ->paginate(10);
+    return view('front.services.index', compact('services'));
+}
+
+
+public function details_services($id){
+    $service =Service:: findOrFail($id);
+
+    $configs= config::all();
+    return view('front.services.details', compact('service','configs'));
+}
 
     ///////////Login///////////////////////////////////////////////////
     public function login()

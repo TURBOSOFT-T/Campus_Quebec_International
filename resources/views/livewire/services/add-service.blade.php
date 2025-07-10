@@ -25,9 +25,9 @@
                 @enderror
             </div>
 
-            <div class="mb-3" wire:ignore>
+            <div class="mb-3" wire:ignore >
                 <label><strong>Description :</strong></label>
-                <textarea class="form-control" name="description" wire:model="description" rows="5"></textarea>
+                <textarea class="form-control" id="description" name="description" wire:model="description" rows="5"></textarea>
                 @error('description')
                     <span class="text-danger small"> {{ $message }} </span>
                 @enderror
