@@ -260,7 +260,7 @@ class HomeController extends Controller
         $configs= config::all();
  $ip = request()->ip();
 
-    $alreadyViewed = BlogView::where('blog_id', $blog->id)
+   /*  $alreadyViewed = BlogView::where('blog_id', $blog->id)
         ->where('ip_address', $ip)
         ->exists();
 
@@ -270,7 +270,7 @@ class HomeController extends Controller
             'ip_address' => $ip,
         ]);
         $blog->increment('views');
-    }
+    } */
 
 
         return view('front.blogs.details', compact('blog','configs', 'lasts', 'categories','comments'));
