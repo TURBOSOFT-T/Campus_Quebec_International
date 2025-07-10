@@ -22,7 +22,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        View::composer(['components.footer2','components.menuList2','components.menuList4','components.mobileMenu','front.fixe', 'front.index','front.services.details', 'front.shop.index'], HomeComposer::class);
+        View::composer(['front.fixe', 'front.index','front.services.details', 'front.shop.index'], HomeComposer::class);
         setlocale(LC_TIME, config('app.locale'));
 
     }

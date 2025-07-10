@@ -399,7 +399,7 @@
                                                 </div>
                                                 <div class="author-content">
                                                     <h3>{{ $testimonial->name }}</h3>
-                                                    <p>Student</p>
+                                                    {{-- <p>Student</p> --}}
                                                 </div>
                                             </div>
                                         </div>
