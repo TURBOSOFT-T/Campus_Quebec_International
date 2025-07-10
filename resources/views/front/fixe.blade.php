@@ -157,7 +157,7 @@
                                         href="{{ route('about') }}">{{ \App\Helpers\TranslationHelper::TranslateText('A propos de nous') }}</a>
                                 </li>
 
-                                 <li class="nav-item submenu"><a class="nav-link" href="#">Formations</a>
+                                {{--  <li class="nav-item submenu"><a class="nav-link" href="#">Formations</a>
                                     <ul>                                        
                                         <li class="nav-item"><a class="nav-link" href="#">Pending</a></li>
                                         <li class="nav-item"><a class="nav-link" href="#">Pending</a></li>
@@ -173,7 +173,7 @@
                                       
                                         
                                     </ul>
-                                </li>
+                                </li> --}}
                                 <li class="nav-item"><a class="nav-link" href="#">
                                         {{ \App\Helpers\TranslationHelper::TranslateText('Actualités') }}
                                     </a></li>
