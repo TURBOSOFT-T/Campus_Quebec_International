@@ -16,11 +16,11 @@
         <body>
 
             <!-- Page Header Start -->
-            <div class="page-header">
+           {{--  <div class="page-header">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12">
-                            <!-- Page Header Box Start -->
+                        
                             <div class="page-header-box">
                                 <h1 class="text-anime-style-2" data-cursor="-opaque">
                                     {{ \App\Helpers\TranslationHelper::TranslateText('A propos de nous') }}</h1>
@@ -34,11 +34,11 @@
                                     </ol>
                                 </nav>
                             </div>
-                            <!-- Page Header Box End -->
+                            
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
             <!-- Page Header End -->
 
             <!-- About Us Start -->
@@ -59,9 +59,9 @@
                                             <img src="images/icon-experience.svg" alt="">
                                         </div>
                                         <div class="company-experience-content">
-                                            <h3><span class="counter"> {{ \App\Helpers\TranslationHelper::TranslateText($config->annees_experience) }}</span>+</h3>
-                                            <p> {{ \App\Helpers\TranslationHelper::TranslateText('années d\'experience') }}</p>
-                                        </div>
+                                              <h3><span class="counter"> {{ \App\Helpers\TranslationHelper::TranslateText($config->annees_experience) }}</span>+</h3>
+                                        <p> {{ \App\Helpers\TranslationHelper::TranslateText('candidats formés') }}</p>
+      </div>
                                     </div>
                                     <!-- Company Experience Box End -->
                                 </div>

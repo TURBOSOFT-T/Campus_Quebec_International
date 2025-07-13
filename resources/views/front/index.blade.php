@@ -164,9 +164,9 @@
                                         <img src="images/icon-experience.svg" alt="">
                                     </div>
                                     <div class="company-experience-content">
-                                        <h3><span class="counter"> {{ \App\Helpers\TranslationHelper::TranslateText($config->annees_experience) }}</span>+</h3>
-                                        <p> {{ \App\Helpers\TranslationHelper::TranslateText('années d\'experience') }}</p>
-
+                                         <h3><span class="counter"> {{ \App\Helpers\TranslationHelper::TranslateText($config->annees_experience) }}</span>+</h3>
+                                        <p> {{ \App\Helpers\TranslationHelper::TranslateText('candidats formés') }}</p>
+ 
                                     </div>
                                 </div>
                                 <!-- Company Experience Box End -->
@@ -444,8 +444,8 @@
                         <!-- Section Title Start -->
                         <div class="section-title">
                             <h3 class="wow fadeInUp"> {{ \App\Helpers\TranslationHelper::TranslateText('Les actualités') }}</h3>
-                            <h2 class="text-anime-style-2" data-cursor="-opaque"><span> {{ \App\Helpers\TranslationHelper::TranslateText('Restez informer des derniers') }}</span>
-                                {{ \App\Helpers\TranslationHelper::TranslateText('actualités et évènements') }}</h2>
+                            <h2 class="text-anime-style-2" data-cursor="-opaque"><span> {{ \App\Helpers\TranslationHelper::TranslateText('Restez informer') }}</span>
+                                </h2>
                         </div>
                         <!-- Section Title End -->
                     </div>

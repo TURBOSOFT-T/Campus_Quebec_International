@@ -94,7 +94,7 @@
                             <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
                             <li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
                         </ul> --}}
-                        <ul style="list-style: none; display: flex; gap: 10px; padding: 0;">
+                        {{-- <ul style="list-style: none; display: flex; gap: 10px; padding: 0;">
                             @if ($config->facebook)
                                 <li><a href="{{ $config->facebook }}" target="_blank"><i
                                             class="fa-brands fa-facebook-f"></i></a></li>
@@ -114,7 +114,7 @@
                                             class="fa-brands fa-youtube"></i></a></li>
                             @endif
 
-                        </ul>
+                        </ul> --}}
                     </div>
                     <!-- Topbar Social Links End -->
                 </div>
@@ -191,9 +191,9 @@
                                         
                                     </ul>
                                 </li> 
-                              {{--   <li class="nav-item"><a class="nav-link" href="#">
-                                        {{ \App\Helpers\TranslationHelper::TranslateText('Actualités') }}
-                                    </a></li> --}}
+                                <li class="nav-item"><a class="nav-link" href="#">
+                                        {{ \App\Helpers\TranslationHelper::TranslateText('Test offiels') }}
+                                    </a></li>
 
 
                                 <li class="nav-item"><a class="nav-link" href="{{ route('contact') }}">
@@ -435,6 +435,16 @@
                                     <li><a href="{{ $config->youtube }}" target="_blank"><i
                                                 class="fa-brands fa-youtube"></i></a></li>
                                 @endif
+
+
+                                 @if ($config->linkedin)
+    <li>
+        <a href="{{ $config->linkedin }}" target="_blank">
+            <i class="fa-brands fa-linkedin-in"></i>
+        </a>
+    </li>
+@endif
+
 
                             </ul>
 

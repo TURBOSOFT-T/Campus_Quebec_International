@@ -18,7 +18,7 @@
                             </a>
                         </div>
                         <!-- /Logo -->
-                        <h4 class="mb-1">Campus Québec International🚀</h4>
+                        <h4 class="mb-1">Campus Québec International</h4>
 
                         @if ($isRegistered)
                         <div class="alert alert-success">
@@ -61,8 +61,8 @@
                                         name="terms" />
                                     <label class="form-check-label" for="terms-conditions">
                                         J'accepte
-                                        <a href="javascript:void(0);"> la politique de confidentialité et les conditions
-                                            Confirmation</a>
+                                        <a href="javascript:void(0);"> la politique de confidentialité
+                                            </a>
                                     </label>
 
                                 </div>

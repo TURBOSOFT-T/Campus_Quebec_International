@@ -375,6 +375,14 @@
                         <span class="text-danger small"> {{ $message }} </span>
                     @enderror
                 </div>
+                  <div class="col-md-3">
+                    <label class="form-label" for="multicol-country">Linkedin</label>
+                    <input type="text"wire:model="linkedin" id="multicol-last-name" class="form-control"
+                        placeholder="Linkedin" />
+                    @error('linkedin')
+                        <span class="text-danger small"> {{ $message }} </span>
+                    @enderror
+                </div>
                 <div class="col-md-3">
                     <label class="form-label" for="multicol-country">Youtube</label>
                     <input type="text"wire:model="youtube" id="multicol-last-name" class="form-control"
@@ -434,7 +442,7 @@
                 </div>
 
                  <div class="col-md-3">
-                    <label class="form-label" for="multicol-first-name">Années d'expérience</label>
+                    <label class="form-label" for="multicol-first-name">Canditats formés</label>
                     <input type="text"wire:model="annees_experience" id="multicol-last-name" class="form-control"
                         placeholder="Années d'expérience" />
                     @error('annees_experience')
