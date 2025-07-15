@@ -17,7 +17,8 @@ class AddFormation extends Component
     public $updateMode = false;  // Nouvelle variable pour le mode mise à jour
     public $formation;  // Ajout d'une variable pour stocker l'événement
 
-
+public $date_debut,
+        $date_fin;
 
     public function mount($formation = null)
     {
@@ -29,6 +30,9 @@ class AddFormation extends Component
             $this->image2 = $formation->image;
             $this->category_id = $formation->category_id;
             $this->meta_description = $formation->meta_description;
+             $this->date_debut = $formation->date_debut;
+              $this->date_fin = $formation->date_fin;
+
            // $this->autre_description = $formation->autre_description;
         }
     }
@@ -74,6 +78,8 @@ class AddFormation extends Component
        
         $formation->category_id = $this->category_id;
         $formation->meta_description = $this->meta_description;
+          $formation->date_debut = $this->date_debut;
+
       //  $formation->autre_description = $this->autre_description;
 
       

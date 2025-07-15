@@ -216,7 +216,7 @@
 
 
                     
-                    <li class="menu-item">
+                     <li class="menu-item">
                         <a href="javascript:void(0);" class="menu-link menu-toggle">
                             <i class="menu-icon tf-icons ti ti-briefcase"></i> 
                             <div data-i18n="Services">Services</div>
@@ -234,7 +234,7 @@
                                 </a>
                             </li>
                         </ul>
-                    </li> 
+                    </li>  
 
 
 
@@ -293,12 +293,12 @@
                         </ul>
                     </li>
  --}}
-                    {{--    <li class="menu-item">
+                       <li class="menu-item">
                         <a href="{{ route('webinaires') }}" class="menu-link">
                             <i class="menu-icon tf-icons fas fa-video"></i>
                             <div data-i18n="Webinaires Zoom">Webinaires Zoom</div>
                         </a>
-                    </li> --}}
+                    </li> 
 
                     <!-- User interface -->
                   {{--   <li class="menu-item">
@@ -373,25 +373,25 @@
                     <li class="menu-item">
                         <a href="javascript:void(0);" class="menu-link menu-toggle">
                             <i class="menu-icon tf-icons ti ti-book"></i>
-                            <div data-i18n="Nos formations">Nos formations</div>
+                            <div data-i18n="Nos services">Nos services</div>
                         </a>
                         <ul class="menu-sub">
                             <li class="menu-item">
                                 <a href="{{ route('formations') }}" class="menu-link">
-                                    <div data-i18n="Liste des formations">Liste des formations</div>
+                                    <div data-i18n="Liste des services">Liste des services</div>
                                 </a>
                             </li>
 
                         </ul>
 
-                        {{--   <ul class="menu-sub">
+                          <ul class="menu-sub">
                             <li class="menu-item">
                                 <a href="{{ route('list_inscriptions') }}" class="menu-link">
                                     <div data-i18n="Liste des inscriptions">Liste des inscriptions</div>
                                 </a>
                             </li>
 
-                        </ul> --}}
+                        </ul> 
                     </li>
 
 

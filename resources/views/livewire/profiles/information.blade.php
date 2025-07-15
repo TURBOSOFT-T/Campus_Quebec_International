@@ -81,10 +81,10 @@
             @enderror
         </div>
 
-        <div class="modal-footer center">
-             <button class="btn btn-primary"  style=" background-color: #b2e21522;" type="submit">
+        <div class="comment-one__btn-box">
+             <button  class="btn-default disabled"   type="submit">
 
-                <i class="fa fa-save mr-1"></i>
+               
                {!! \App\Helpers\TranslationHelper::TranslateText(' Confirmer les changements') !!}
             </button> 
 

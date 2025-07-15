@@ -1,21 +1,15 @@
-@extends('layouts.formation')
-
+@extends('front.fixe')
+@section('titre', $formation->titre)
+@section('body')
 @php
     $config = DB::table('configs')->first();
 
 @endphp
-@php
-    $title = \App\Helpers\TranslationHelper::TranslateText('Inscription');
-    $subtitle = \App\Helpers\TranslationHelper::TranslateText('Inscription');
-@endphp
-@section('titre', \App\Helpers\TranslationHelper::TranslateText('Inscription'))
-@section('body')
+
  <head>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
     </head>
-    <x-strickyHeader />
-    <x-sidebar />
-
+  
     <!--Contact One Start-->
 
 
@@ -40,9 +34,20 @@
                     <input type="hidden" name="formation_id" value="{{ $formation->id }}">
                     <div class="row">
 
-                       <div class="col-xl-6 col-lg-6">
+                            {{-- <div class="form-group col-md-6 mb-4">
+                       <input type="email" wire:model="email" name="email" class="form-control" id="email"
+                           placeholder="E-Mail" required="">
+                       @error('email')
+                           <span class="small text-danger">
+                               {{ $message }}
+                           </span>
+                       @enderror
+                       <div class="help-block with-errors"></div>
+                   </div> --}}
+
+                       <div class="form-group col-md-6 mb-4">
                             <div class="contact-one__input-box">
-                                <input name="nom" type="text" placeholder="
+                                <input class="form-control" name="nom" type="text" placeholder="
                                   {{ \App\Helpers\TranslationHelper::TranslateText('Votre nom') }}
                                 " required="required">
                                 @error('nom')
@@ -51,18 +56,20 @@
                             </div>
                         </div>
 
-                        <div class="col-xl-6 col-lg-6">
+                        
+
+                       <div class="form-group col-md-6 mb-4">
                             <div class="contact-one__input-box">
-                                <input name="prenom" type="text" placeholder=" {{ \App\Helpers\TranslationHelper::TranslateText('Votre prénom') }}" required="required">
+                                <input class="form-control" name="prenom" type="text" placeholder=" {{ \App\Helpers\TranslationHelper::TranslateText('Votre prénom') }}" required="required">
                                 @error('prenom')
                                     <span class="small text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
                         </div>
 
-                        <div class="col-xl-6 col-lg-6">
+                        <div class="form-group col-md-6 mb-4">
                             <div class="contact-one__input-box">
-                                <input name="email" type="email" placeholder=" Email" required="required">
+                                <input name="email" class="form-control" type="email" placeholder=" Email" required="required">
                                 @error('email')
                                     <span class="small text-danger">{{ $message }}</span>
                                 @enderror
@@ -70,19 +77,19 @@
                         </div>
 
                         <!-- Autres champs comme téléphone, adresse, message -->
-                        <div class="col-xl-6 col-lg-6">
+                       <div class="form-group col-md-6 mb-4">
                             <div class="contact-one__input-box">
-                                <input name="telephone" type="text" placeholder=" {{ \App\Helpers\TranslationHelper::TranslateText('Votre téléphone') }}" required="required">
+                                <input name="telephone" class="form-control" type="text" placeholder=" {{ \App\Helpers\TranslationHelper::TranslateText('Votre téléphone') }}" required="required">
                                 @error('telephone')
                                     <span class="small text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
                         </div>
 
-                         <div class="col-xl-6 col-lg-6">
+                         <div class="form-group col-md-6 mb-4">
                             <div class="contact-one__input-box">
                                 <div class="select-box" style="position: relative;">
-                                    <input type="text" id="countryInput" name="country_id"
+                                    <input  class="form-control" type="text" id="countryInput" name="country_id"
                                         placeholder="{{ \App\Helpers\TranslationHelper::TranslateText('Pays') }}"
                                         autocomplete="off" />
                                     <input type="hidden" name="country_id" id="countryId" />
@@ -94,17 +101,17 @@
                             </div>
                         </div>
 
-                        <div class="col-xl-6 col-lg-6">
+                       <div class="form-group col-md-6 mb-4">
                             <div class="contact-one__input-box">
-                                <input name="ville" type="text" placeholder=" {{ \App\Helpers\TranslationHelper::TranslateText('Votre ville') }}">
+                                <input  class="form-control" name="ville" type="text" placeholder=" {{ \App\Helpers\TranslationHelper::TranslateText('Votre ville') }}">
                                 @error('ville')
                                     <span class="small text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
                         </div>
-                        <div class="col-xl-6 col-lg-6">
+                        <div class="form-group col-md-6 mb-4">
                             <div class="contact-one__input-box">
-                                <input name="addresse" type="text" placeholder=" {{ \App\Helpers\TranslationHelper::TranslateText('Votre adresse') }}">
+                                <input name="addresse" class="form-control" type="text" placeholder=" {{ \App\Helpers\TranslationHelper::TranslateText('Votre adresse') }}">
                                 @error('addresse')
                                     <span class="small text-danger">{{ $message }}</span>
                                 @enderror
@@ -113,13 +120,14 @@
 
                         <div class="col-xl-12">
                             <div class="contact-one__input-box text-message-box">
-                                <textarea name="message" placeholder=" {{ \App\Helpers\TranslationHelper::TranslateText('Laisser une note') }}" required="required"></textarea>
+                                <textarea name="message" class="form-control" placeholder=" {{ \App\Helpers\TranslationHelper::TranslateText('Laisser une note') }}" required="required"></textarea>
                                 @error('message')
                                     <span class="small text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
+                            <br>
                             <div class="contact-one__btn-box">
-                                <button type="submit" class="thm-btn contact-one__btn">
+                                <button type="submit" class="btn-default disabled">
                                      {{ \App\Helpers\TranslationHelper::TranslateText('Confirmation') }} <span class="icon-arrow-right"></span>
                                 </button>
                             </div>
@@ -130,6 +138,7 @@
                 <div class="result"></div>
             </div>
         </div>
+        <br>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
@@ -266,8 +275,5 @@
     </section>
 
 
-    <x-footer2 />
-    <x-mobileMenu />
-    <x-searchPopup />
-    <x-scroll-to-top />
-@endsection
+   </main>
+    @endsection

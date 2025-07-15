@@ -19,13 +19,15 @@
 
 
                     <div class="col-xl-3 col-md-4 service-details__all-category">
-                        <h3 class="service-details__category-title">
+                        <h3 >
                             {{ \App\Helpers\TranslationHelper::TranslateText('Mon compte') }}
                         </h3>
+                        <br>
                         <ul class="service-details__all-category-list list-unstyled">
                             <aside class="axil-dashboard-aside">
                                 <nav class="axil-dashboard-nav">
-                                    <div class="nav nav-tabs" role="tablist">
+                                   {{--  <div class="nav nav-tabs" role="tablist"> --}}
+                                    <div class="service-catagery-list wow fadeInUp nav nav-tabs" role="tablist">
 
                                         <a class="nav-item nav-link active" data-bs-toggle="tab" href="#nav-dashboard"
                                             role="tab" aria-selected="true"><i class="fas fa-th-large"></i>
@@ -33,11 +35,7 @@
                                         <a class="nav-item nav-link" data-bs-toggle="tab" href="#nav-orders" role="tab"
                                             aria-selected="false"><i class="fas fa-shopping-basket"></i>
                                             {{ \App\Helpers\TranslationHelper::TranslateText('Mes Inscriptions') }}</a>
-                                        <a class="nav-item nav-link" data-bs-toggle="tab" href="#nav-comments"
-                                            role="tab" aria-selected="false">
-                                            <i class="fas fa-heart"></i>
-                                            {{ \App\Helpers\TranslationHelper::TranslateText('Mes commentaires') }}
-                                        </a>
+                                    
 
                                         <a class="nav-item nav-link" data-bs-toggle="tab" href="#nav-meet" role="tab"
                                             aria-selected="false"><i class="fas fa-video"
@@ -47,10 +45,7 @@
                                         <a class="nav-item nav-link" data-bs-toggle="tab" href="#nav-account" role="tab"
                                             aria-selected="false"><i class="fas fa-user"></i>
                                             {{ \App\Helpers\TranslationHelper::TranslateText('Mon profile') }}</a>
-                                        {{-- <a class="nav-item nav-link" data-bs-toggle="tab" href="#nav-gallery" role="tab"
-                                            aria-selected="false"> <i class="fas fa-images"></i>
-                                            {{ \App\Helpers\TranslationHelper::TranslateText('Mes images') }}</a>
- --}}
+                                       
                                         <a class="nav-item nav-link" href="{{ route('logout') }}"
                                             onclick="event.preventDefault();   document.getElementById('logout-form').submit();">
                                             <i class="fas fa-sign-out-alt"></i>
@@ -79,7 +74,7 @@
 
                                             <div class="row pt-1 g-1">
 
-                                                <div class="col-md-3 col-sm-6">
+                                                <div class="col-md-4 col-sm-6">
                                                     <div class="dashboard-card hover-border1 wow fadeInDown"
                                                         data-wow-duration="1.5s" data-wow-delay=".6s">
                                                         <div class="header">
@@ -99,7 +94,7 @@
                                                 </div>
 
 
-                                                <div class="col-md-3 col-sm-6">
+                                                <div class="col-md-4 col-sm-6">
                                                     <div class="dashboard-card hover-border1 wow fadeInDown"
                                                         data-wow-duration="1.5s" data-wow-delay=".4s">
                                                         <div class="header">
@@ -124,7 +119,7 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="col-md-3 col-sm-6">
+                                                <div class="col-md-4 col-sm-6">
                                                     <div class="dashboard-card hover-border1 wow fadeInDown"
                                                         data-wow-duration="1.5s" data-wow-delay=".6s">
                                                         <div class="header">
@@ -144,24 +139,7 @@
                                                 </div>
 
 
-                                                <div class="col-md-3 col-sm-6">
-                                                    <div class="dashboard-card hover-border1 wow fadeInDown"
-                                                        data-wow-duration="1.5s" data-wow-delay=".6s">
-                                                        <div class="header">
-                                                            <h5>{{ \App\Helpers\TranslationHelper::TranslateText('Mes commentaires') }}
-                                                            </h5>
-                                                        </div>
-                                                        <div class="row body">
-                                                            <div class="col-sm-6 col-6 counter-item">
-                                                                <h2>{{ $totalcomments ?? '00' }}</h2>
-                                                            </div>
-                                                            <div class="col-sm-6 col-6 icon">
-                                                                <i class="fas fa-comment-dots"
-                                                                    style="font-size: 30px; color: #f39c12;"></i>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                       
 
 
 
@@ -196,16 +174,7 @@
                                                     </tr>
 
                                                     <!-- Avis -->
-                                                    <tr>
-                                                        <td>
-                                                            <i class="fas fa-comment-dots"
-                                                                style="font-size: 30px; color: #f39c12;"></i>
-                                                        </td>
-                                                        <td>
-                                                            {{ \App\Helpers\TranslationHelper::TranslateText('Mes commentaires') }}
-                                                        </td>
-                                                        <td>{{ $totalcomments ?? ' ' }}</td>
-                                                    </tr>
+                                                   
 
 
                                                     <tr>
@@ -237,7 +206,7 @@
                                                 <tr>
 
                                                     <th scope="col">
-                                                        {{ \App\Helpers\TranslationHelper::TranslateText('Produit') }}
+                                                        {{ \App\Helpers\TranslationHelper::TranslateText('Libellé') }}
                                                     </th>
 
 
@@ -261,13 +230,13 @@
                                                 @forelse ($inscriptions as $key => $inscription)
                                                     <tr>
                                                         <td data-label="Image">
-                                                            {{ $inscription->event->titre ?? 'Événement non défini' }}
+                                                            {{ $inscription->formation->titre ?? 'Événement non défini' }}
                                                         </td>
 
 
                                                         <td data-label="price">
                                                             <p><strong></strong>
-                                                                {{ $inscription->event->start ?? 'Non précisé' }}</p>
+                                                                {{ $inscription->formation->start ?? 'Non précisé' }}</p>
                                                         </td>
                                                         <td data-label="Status" class="text-green">
 

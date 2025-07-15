@@ -183,17 +183,17 @@
                                     </ul>
                                 </li> --}}
                                  <li class="nav-item submenu"><a class="nav-link" href="#">{{ \App\Helpers\TranslationHelper::TranslateText('Services') }}</a>
-                                    <ul> @foreach ($services as $service )
-                                        <li class="nav-item"><a class="nav-link" href="{{ route('details-services', ['id' => $service->id, 'slug'=>Str::slug(Str::limit($service->nom, 10))]) , }}">{{ \App\Helpers\TranslationHelper::TranslateText($service->nom) }}</a></li>
+                                    <ul>   @foreach ($formations as $formation )
+                                        <li class="nav-item"><a class="nav-link"  href="{{ route('details-formations', ['id' => $formation->id, 'slug'=>Str::slug(Str::limit($formation->titre, 10))]) , }}">{{ \App\Helpers\TranslationHelper::TranslateText($formation->titre) }}</a></li>
                                         
                                     @endforeach                                       
                                         
                                         
                                     </ul>
                                 </li> 
-                                <li class="nav-item"><a class="nav-link" href="#">
+                               {{--  <li class="nav-item"><a class="nav-link" href="#">
                                         {{ \App\Helpers\TranslationHelper::TranslateText('Test offiels') }}
-                                    </a></li>
+                                    </a></li> --}}
 
 
                                 <li class="nav-item"><a class="nav-link" href="{{ route('contact') }}">
@@ -223,11 +223,11 @@
                                                 </li>
                                             @endif   
                                             
-                                            {{--  <li class="nav-item">
+                                              <li class="nav-item">
                                                 <a class="nav-link" href="{{ route('account') }}">
                                                     {{ \App\Helpers\TranslationHelper::TranslateText('Mon compte') }}
                                                 </a>
-                                            </li> --}}
+                                            </li>
 
                                             <li class="nav-item">
                                                 <a class="nav-link" href="{{ route('logout') }}"

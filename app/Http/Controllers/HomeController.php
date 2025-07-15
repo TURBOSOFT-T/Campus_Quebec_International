@@ -217,7 +217,8 @@ class HomeController extends Controller
         $categories = Category::withCount('formations')
         ->has('formations')->get();
         $configs= config::all();
-        return view('front.formations.details', compact('formation','configs', 'lasts', 'categories'));
+        $formations = Formation :: all();
+        return view('front.formations.details', compact('formation','configs', 'lasts', 'categories','formations'));
     }
 
     public function searchformation(SearchRequest $request)

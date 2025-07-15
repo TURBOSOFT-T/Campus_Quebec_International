@@ -22,7 +22,17 @@
                         </div>
                     </div>
 
-               
+               <div class="col-sm-6">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">
+                                Date debut *
+                            </label>
+                            <input type="date" id="titre" wire:model="date_debut" class="form-control">
+                            @error('date_debut')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+                    </div>
                     <div class="col-sm-6">
                         <div class="mb-3">
                             <label for="name" class="form-label">
@@ -90,8 +100,8 @@
                     <div class="col-sm-6">
                         <div class="mb-3">
                             <label for="description"> Meta Description</label>
-                            <textarea id="description" wire:model="autre_description" class="form-control"></textarea>
-                            @error('autre_description')
+                            <textarea id="description" wire:model="meta_description" class="form-control"></textarea>
+                            @error('meta_description')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>

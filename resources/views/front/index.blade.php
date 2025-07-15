@@ -294,29 +294,29 @@
 
                 <div class="row">
 
-                    @foreach ($services as $service)
+                    @foreach ($formations as $formation)
                     <div class="col-lg-3 col-md-6">
                         <!-- Service Item Start -->
                         <div class="service-item wow fadeInUp" data-wow-delay="0.2s">
                             <!-- Icon Box Start -->
                             <div class="icon-box">
-                                <img src="{{ Storage::url($service->image) }}"  {{-- width="200" height="200" --}}  alt="">
+                                <img src="{{ Storage::url($formation->image) }}"  {{-- width="200" height="200" --}}  alt="">
                             </div>
                             <!-- Icon Box End -->
 
                             <!-- Service Body Start -->
                             <div class="service-body">
-                                <h3> {{ \App\Helpers\TranslationHelper::TranslateText($service->nom ?? ' ')  }}</h3>
+                                <p> {{ \App\Helpers\TranslationHelper::TranslateText($formation->titre ?? ' ')  }}</p>
                                 <p>
                           
-                                     {{ \App\Helpers\TranslationHelper::TranslateText( Str::limit($service->meta_description ?? ' ', 100)) }}
+                                     {{ \App\Helpers\TranslationHelper::TranslateText( Str::limit($formation->meta_description ?? ' ', 100)) }}
                                 </p>
                             </div>
                             <!-- Service Body End -->
 
                             <!-- Service Footer Start -->
                             <div class="service-footer">
-                                <a href="{{ route('details-services', ['id' => $service->id, 'slug'=>Str::slug(Str::limit($service->nom, 10))]) , }}" class="service-btn"><img src="images/arrow-white.svg" alt="">
+                                <a href="{{ route('details-formations', ['id' => $formation->id, 'slug'=>Str::slug(Str::limit($formation->titre, 10))]) , }}" class="service-btn"><img src="images/arrow-white.svg" alt="">
                                 </a>
                             </div>
                             <!-- Service Footer End -->
