@@ -137,7 +137,7 @@ Route::get('searchblog', [HomeController::class, 'searchblog'])->name("searchblo
 
 
 ///////////Services///////////////
-Route::get('/services', [HomeController::class, 'services'])->name('services');
+//Route::get('/services', [HomeController::class, 'services'])->name('services');
 Route::get('/details-services/{id}/{slug}', [HomeController::class, 'details_services'])->name('details-services');
 
 ///////Events///////////////
