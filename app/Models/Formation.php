@@ -33,5 +33,9 @@ class Formation extends Model
     {
         return $this->belongsTo(Category::class, 'category_id', 'id');
     }
+public function user()
+{
+    return $this->belongsTo(User::class , 'user_id', 'id');
+}
 
 }

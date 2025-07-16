@@ -85,13 +85,15 @@ public $date_debut,
       
             $formation->image = $this->image->store('formations', 'public');
       
+   // ✅ Lier à l'utilisateur connecté
+    $formation->user_id = auth()->id();
 
         // Sauvegarder l'événement
         $formation->save();
 
         // Réinitialiser les champs et afficher le message de succès
         $this->resetInputFields();
-        session()->flash('success', $this->updateMode ? 'Événement mis à jour avec succès' : 'Événement ajouté avec succès');
+        session()->flash('success', $this->updateMode ? 'Formation mise à jour avec succès' : 'Formation ajoutée avec succès');
 
         // Rediriger ou fermer le modal si nécessaire
        // $this->emit('closeModal');  // Si vous utilisez un modal

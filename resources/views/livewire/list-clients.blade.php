@@ -32,7 +32,7 @@
                     <th>Phone</th>
                     <th>Adresse</th>
                     <th>Pays</th>
-                    <th>Gouvernorat</th>
+                    <th>Ville</th>
                     <th>création</th>
                     <th style="text-align: right;">
                         <span wire:loading>
@@ -89,7 +89,7 @@
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="8" class="text-center">Aucun client trouvé</td>
+                        <td colspan="8" class="text-center">Aucun étudant trouvé</td>
                     </tr>
                 @endforelse
 

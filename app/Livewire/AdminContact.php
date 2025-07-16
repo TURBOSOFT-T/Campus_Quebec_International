@@ -104,7 +104,7 @@ public $biographie, $localisation, $annees_experience;
     {
         // valid all form fields as nulable
         $this->validate([
-            'logo' =>  'image|nullable',   // 1MB Max
+         'logo' => 'nullable|file|mimetypes:image/*|max:10024',
             'photos.*' => 'sometimes|nullable|file|mimetypes:image/*',
             //  'logoHeader' =>  'image|nullable|max:2024',   // 1MB Max
             'logocontact' => 'nullable', // 1MB Max

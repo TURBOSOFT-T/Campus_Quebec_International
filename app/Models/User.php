@@ -30,6 +30,7 @@ class User extends Authenticatable
         'password',
         'phone',
         'avatar',
+        'user_id'
     ];
 
     /**
@@ -103,4 +104,9 @@ public function inscriptions()
     return $this->hasMany(Inscription::class , 'user_id' , 'id');
 }
 
+
+public function formations()
+{
+    return $this->hasMany(Formation::class , 'user_id' , 'id');
+}
 }

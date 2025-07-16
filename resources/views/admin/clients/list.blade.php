@@ -32,7 +32,7 @@
                                             <a href="javascript: void(0);">{{ config('app.name') }}</a>
                                         </li>
                                         <li class="breadcrumb-item">
-                                            <a href="{{ route('clients') }}">Clients</a>
+                                            <a href="{{ route('clients') }}">Etudiants</a>
                                         </li>
                                         <li class="breadcrumb-item active">Liste</li>
                                     </ol>
@@ -45,11 +45,11 @@
                             <div class="card-title">
                                 <div class="d-flex justify-content-between">
                                     <h5 class="mb-0 my-auto">
-                                        Liste des clients
+                                        Liste des étudiants
                                     </h5>
-                                    {{-- <button class="btn btn-sm btn-primary" onclick="url('{{ route('export_clients') }}')">
+                                     <button class="btn btn-sm btn-primary" onclick="url('{{ route('export_clients') }}')">
                                         <i class="ri-file-excel-2-line"></i> Exporter la liste
-                                    </button> --}}
+                                    </button> 
                                 </div>
                             </div>
                             <hr />

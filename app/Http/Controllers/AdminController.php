@@ -348,8 +348,15 @@ public function blogs_update($id)
 
 public function formations()
 {
+    $user = auth()->user();
     // Retrieve all formations from the database
+    //$formations = Formation::all();
+    if ($user->role === 'admin') {
     $formations = Formation::all();
+} else {
+    $formations = Formation::where('user_id', $user->id)->get();
+}
+
 
     // Pass the formations to the view for rendering
     return view('admin.formations.list', compact('formations'));
@@ -457,8 +464,8 @@ public function sponsor_update($id){
 
     public function personnels()
     {
-       // $personnels = User::where('role', 'personnel')->get();
-       $personnels = User::all();
+        $personnels = User::where('role', 'personnel')->get();
+      // $personnels = User::all();
         return view('admin.personnels.list', compact('personnels'));
     }
 

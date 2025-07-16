@@ -414,7 +414,14 @@
                         </ul>
 
 
+<ul class="menu-sub">
+                            <li class="menu-item">
+                                <a href="{{ route('clients') }}" class="menu-link">
+                                    <div data-i18n="Liste des étudiants ">Liste des étudiants</div>
+                                </a>
+                            </li>
 
+                        </ul>
 
 
                     </li>
