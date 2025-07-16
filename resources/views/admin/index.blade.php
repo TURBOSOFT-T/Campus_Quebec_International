@@ -89,7 +89,7 @@
                             </div>
                             <div class="content-right">
                                 <p class="mb-0 fw-medium">Meets</p>
-                                <h4 class="text-warning mb-0">{{ $totalVideos ?? '' }}</h4>
+                                <h4 class="text-warning mb-0">{{ $totalMeet ?? '' }}</h4>
                             </div>
                         </div>
 

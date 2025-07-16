@@ -158,6 +158,7 @@ class AdminController extends Controller
         $totalUser = User::whereBetween('created_at', [$date_debut, $date_fin])->count();
         $totalVideos = Video::count();
         $totalFormations = Formation::count();
+        $totalMeet = Online_classe :: count();
         $totalactualites = Blog::count();
         $latestVideos = Video::orderBy('created_at', 'desc')
             ->take(5)
@@ -173,7 +174,7 @@ class AdminController extends Controller
         $totalEvents = Event::count();
         $totalSponsors = Sponsor::count();
 
-           return view('admin.index' , compact('totalactualites','totalFormations','lastevents','lastevent','latestVideo','videosVues','latestVideos','total_visites', 'inscriptionMonth','totalUser','videosPerMonth','topUsers','totalVideos','totalEvents','totalSponsors'));
+           return view('admin.index' , compact('totalMeet','totalactualites','totalFormations','lastevents','lastevent','latestVideo','videosVues','latestVideos','total_visites', 'inscriptionMonth','totalUser','videosPerMonth','topUsers','totalVideos','totalEvents','totalSponsors'));
     }
 
 

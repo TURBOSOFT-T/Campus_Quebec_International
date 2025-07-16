@@ -216,7 +216,7 @@
 
 
                     
-                     <li class="menu-item">
+                    {{--  <li class="menu-item">
                         <a href="javascript:void(0);" class="menu-link menu-toggle">
                             <i class="menu-icon tf-icons ti ti-briefcase"></i> 
                             <div data-i18n="Services">Services</div>
@@ -234,7 +234,7 @@
                                 </a>
                             </li>
                         </ul>
-                    </li>  
+                    </li>   --}}
 
 
 
@@ -373,7 +373,7 @@
                     <li class="menu-item">
                         <a href="javascript:void(0);" class="menu-link menu-toggle">
                             <i class="menu-icon tf-icons ti ti-book"></i>
-                            <div data-i18n="Nos services">Nos services</div>
+                            <div data-i18n="Nos services">Services</div>
                         </a>
                         <ul class="menu-sub">
                             <li class="menu-item">
