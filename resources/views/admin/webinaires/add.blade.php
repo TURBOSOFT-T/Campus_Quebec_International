@@ -94,7 +94,7 @@
                                                 </div>
 
                                                 <div class="mb-3">
-                                                    <label for="duration">Durée (minutes)</label>
+                                                    <label for="duration">Durée (Heures)</label>
                                                     <input type="number" name="duration" class="form-control" required>
                                                 </div>
 
