@@ -62,7 +62,7 @@
                                                     <select name="type" class="form-control" required>
                                                         <option value="">-- Choisir --</option>
                                                         <option value="formation">Formation</option>
-                                                        <option value="event">Événement</option>
+                                                        <option value="event">Certification</option>
                                                     </select>
                                                 </div>
 
