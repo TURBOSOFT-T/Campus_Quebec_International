@@ -12,7 +12,7 @@ class Online_classe extends Model
 
 
     //protected $guarded=[];
-    public $fillable = ['formation_id', 'event_id', 'user_id', 'meeting_id', 'topic', 'start_at', 'duration', 'password', 'start_url', 'join_url'];
+    public $fillable = ['formation_id', 'certification_id','event_id', 'user_id', 'meeting_id', 'topic', 'start_at', 'duration', 'password', 'start_url', 'join_url'];
 
     public function getStatusAttribute()
     {
@@ -39,6 +39,11 @@ class Online_classe extends Model
     public function formations()
     {
         return $this->belongsTo(Formation::class, 'formation_id');
+    }
+
+      public function certifications()
+    {
+        return $this->belongsTo(Certification::class, 'certification_id');
     }
 
     public function user()

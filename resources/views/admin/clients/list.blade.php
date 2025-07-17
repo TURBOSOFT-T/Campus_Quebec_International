@@ -1,4 +1,4 @@
-@section('titre', 'Liste des clients')
+@section('titre', 'Liste des étudiants')
 @extends('admin.fixe')
 
 @section('body')
@@ -8,21 +8,8 @@
     
 <div class="layout-wrapper layout-content-navbar">
     <div class="layout-container">
-
-        
-     
-          
-
-
-
-           
-
-           
-            <div class="content-wrapper">
-                
-
+         <div class="content-wrapper">
                 <div class="container-xxl flex-grow-1 container-p-y">
-
                     <div class="row mb-3">
                         <div class="col-12">
                             <div class="page-title-box">
@@ -56,20 +43,10 @@
                             @livewire('ListClients')
                         </div>
                     </div>
-   
-
-
-
-
-
 
                 </div>
 
             </div>
-
-     
-
-
     </div>
 </div>
   

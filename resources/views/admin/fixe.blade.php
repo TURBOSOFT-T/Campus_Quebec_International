@@ -301,15 +301,15 @@
                     </li> 
 
                     <!-- User interface -->
-                  {{--   <li class="menu-item">
+                     <li class="menu-item">
                         <a href="javascript:void(0)" class="menu-link menu-toggle">
                             <i class="menu-icon tf-icons ti ti-color-swatch"></i>
-                            <div data-i18n="Evènements">Evènements</div>
+                            <div data-i18n="Certifications">Certifications</div>
                         </a>
                         <ul class="menu-sub">
                             <li class="menu-item">
-                                <a href="{{ route('events') }}" class="menu-link">
-                                    <div data-i18n=" Liste ">Evènements</div>
+                                <a href="{{ route('certifications') }}" class="menu-link">
+                                    <div data-i18n=" Liste ">Certifications</div>
                                 </a>
                             </li>
 
@@ -319,7 +319,7 @@
                         
                         <ul class="menu-sub">
                             <li class="menu-item">
-                                <a href="{{ route('events-inscriptions-list') }}" class="menu-link">
+                                <a href="{{ route('certifications-inscriptions-list') }}" class="menu-link">
                                     <div data-i18n=" Inscriptions ">Inscriptions</div>
                                 </a>
                             </li>
@@ -329,7 +329,7 @@
                         </ul> 
 
 
-                    </li> --}}
+                    </li> 
 
 
 

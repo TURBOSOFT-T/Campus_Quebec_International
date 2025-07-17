@@ -17,7 +17,7 @@ return new class extends Migration
         //    $table->foreignId('formation_id')->references('id')->on('formations')->onDelete('cascade');
             $table->unsignedBigInteger('formation_id')->nullable()->default(null);
             $table->unsignedBigInteger('event_id')->nullable()->default(null);
-            $table->enum("type",["formation","event"])->default("event");
+            $table->enum("type",["formation","event","certification"])->default("event");
             $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('meeting_id');
             $table->string('topic');

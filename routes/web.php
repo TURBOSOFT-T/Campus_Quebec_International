@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\DevelopperController;
+
 use App\Http\Controllers\HomeController;
 
 use App\Http\Controllers\BannersController;
@@ -17,24 +17,23 @@ use App\Http\Controllers\ImageController;
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Front\{
- ContactController ,
+    ContactController,
 };
 
 use App\Http\Controllers\Back\{
 
-CategoryController,
-TestimonialController as TestimonialBacKController,
-FormationController as FormationBackController,
-//CommandeController,
-CounponController,
-LeconController as BackLeceonController,
-DocumentController as BacKDocumentController,
-EventController as BackEventController,
-CoursController as BackCoursController,
-VideoController,
-   
+    CategoryController,
+    TestimonialController as TestimonialBacKController,
+    FormationController as FormationBackController,
+    //CommandeController,
+    CounponController,
+    LeconController as BackLeceonController,
+    DocumentController as BacKDocumentController,
+    EventController as BackEventController,
+    CoursController as BackCoursController,
+    VideoController,
 };
-
+use App\Http\Controllers\CertificationController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\FormationController;
 use App\Http\Controllers\InscriptionController;
@@ -47,17 +46,17 @@ use App\Http\Controllers\CommentController;
 use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 
 
-Route::post('/locale', [LocaleController::class ,'change'])->name("locale.change");
-    // CACHE CLEAR ROUTE
-    Route::get('cache-clear', function () {
-        Artisan::call('optimize:clear');
-        request()->session()->flash('success', 'Successfully cache cleared.');
-        return redirect()->back();
-    })->name('cache.clear');
+Route::post('/locale', [LocaleController::class, 'change'])->name("locale.change");
+// CACHE CLEAR ROUTE
+Route::get('cache-clear', function () {
+    Artisan::call('optimize:clear');
+    request()->session()->flash('success', 'Successfully cache cleared.');
+    return redirect()->back();
+})->name('cache.clear');
 
 
-    // STORAGE LINKED ROUTE
-    Route::get('storage-link',[AdminController::class,'storageLink'])->name('storage.link');
+// STORAGE LINKED ROUTE
+Route::get('storage-link', [AdminController::class, 'storageLink'])->name('storage.link');
 
 
 // NewsLetter
@@ -94,24 +93,23 @@ Route::get('/logout', [HomeController::class, 'logout']);
 Route::get('/', [HomeController::class, 'home'])->name('home');
 Route::get('/print/commande/{id}', [HomeController::class, 'print_commande'])->name('print_commande');
 
-//Route::get('/marque/{id}', [HomeController::class, 'produits'])->where('id', '[0-9]+');
-//Route::get('/details-produits/{id}', [HomeController::class, 'details'])->name('details-produits');
+
 Route::get('/details-produits/{id}/{slug}', [HomeController::class, 'details'])->name('details-produits');
 Route::get('/details-services/{id}/{slug}', [HomeController::class, 'detailsServices'])->name('details-services');
 
 
- ///gestion boutique
+///gestion boutique
 Route::get('/shop', [HomeController::class, 'shop'])->name('shop');
 Route::get('ordres-croissant', [HomeController::class, 'croissant'])->name('ordres.croissant');
 Route::post('/shop', [HomeController::class, 'shop']);
 Route::get('/category/{id}', [HomeController::class, 'produits'])->where('id', '[0-9]+');
 Route::get('/decroissant', [HomeController::class, 'decroissant'])
-->name('decroissant');
+    ->name('decroissant');
 Route::get('/croissant', [HomeController::class, 'croissant'])
-->name('croissant');
+    ->name('croissant');
 
 //Route::get('/search-product',[HomeController::class,'search_products'])->name('search.products');
-Route::get('/sort-by',[HomeController::class,'sort_by'])->name('sort.by');
+Route::get('/sort-by', [HomeController::class, 'sort_by'])->name('sort.by');
 
 //////Formations/////////////
 Route::get('/nos-formations', [HomeController::class, 'formations'])->name('nos-formations');
@@ -119,8 +117,7 @@ Route::get('/category_formation/{id}', [HomeController::class, 'formations'])->w
 Route::get('/details-formations/{id}/{slug}', [HomeController::class, 'details_formations'])->name('details-formations');
 Route::get('searchformation', [HomeController::class, 'searchformation'])->name("searchformation");
 
-//Route::get('/formation-inscription/{id}/{slug}', [InscriptionController::class, 'formation_inscription'])->name("formation.inscription");
-//Route::post('/events-inscriptions', [InscriptionController::class, 'confirmEvents'])->name('event.confirm');
+
 Route::get('/formation/inscription/{id}', [InscriptionController::class, 'formation_inscription'])->name('formation.inscription');
 
 Route::post('/formations-inscriptions', [InscriptionController::class, 'confirmFormation'])->name('formation.confirm');
@@ -137,7 +134,6 @@ Route::get('searchblog', [HomeController::class, 'searchblog'])->name("searchblo
 
 
 ///////////Services///////////////
-//Route::get('/services', [HomeController::class, 'services'])->name('services');
 Route::get('/details-services/{id}/{slug}', [HomeController::class, 'details_services'])->name('details-services');
 
 ///////Events///////////////
@@ -149,36 +145,37 @@ Route::get('/event-inscription/{id}/{slug}', [InscriptionController::class, 'eve
 //Route::post('/events-inscriptions', [InscriptionController::class, 'confirmEvents'])->name('event.confirm');
 Route::post('/events-inscriptions', [InscriptionController::class, 'confirmEvent'])->name('event.confirm');
 
+////////////Certifications///////////
+///////Events///////////////
+
+Route::get('/category_certification/{id}', [HomeController::class, 'ertifications'])->where('id', '[0-9]+');
+Route::get('/details-certifications/{id}/{slug}', [HomeController::class, 'details_certifications'])->name('details-certifications');
+Route::get('searchcertification', [HomeController::class, 'searchcertification'])->name("searchcertification");
+Route::get('/certification-inscription/{id}/{slug}', [InscriptionController::class, 'certification_inscription'])->name("certification.inscription");
+Route::post('/certifications-inscriptions', [InscriptionController::class, 'confirmCertification'])->name('certification.confirm');
 
 
 
 Route::get('/commander', [CommandeController::class, 'commander'])->name('commander');
 Route::post('/order', [CommandeController::class, 'confirmOrder'])->name('order.confirm');
 Route::get('/thank-you', [CommandeController::class, 'index'])->name('thank-you');
-//Route::get('cart', [CommandeController::class, 'cart'])->name('cart');
+
 Route::delete('/cart/clear', [CommandeController::class, 'clear'])->name('cart.clear');
 
 
 // Utilisateur authentifié
 Route::middleware('auth')->group(function () {
 
-    /////////////////Commandes////////////////////////////////////////
-  //  Route::post('/order', [CommandeController::class, 'confirmOrder'])->name('order.confirm');
-//Route::get('/thank-you', [CommandeController::class, 'index'])->name('thank-you');
-    //Route::get('/commander', [CommandeController::class, 'commander'])->name('commander');
-
     //gestion des favoris  
     Route::get('/favories', [MyAccountController::class, 'favories'])->name('favories');
     ///Mon compte
-    Route::get('/comptes', [MyAccountController::class, 'comptes'])->name('comptes'); 
+    Route::get('/comptes', [MyAccountController::class, 'comptes'])->name('comptes');
     Route::put('/avatar/{id}', [MyAccountController::class, 'avatar']);
     ///Mon compte  
     Route::get('/account', [MyAccountController::class, 'account'])->name('account');
     ///Mon profil
     Route::get('/profile', [MyAccountController::class, 'profile'])->name('profile');
     Route::delete('/deletecomments/{id}', [MyAccountController::class, 'delecomment'])->name('comments.delete');
-   
-
 });
 
 
@@ -201,34 +198,32 @@ Route::middleware(['auth'])->group(function () {
         ->name('categories.update')
         ->middleware('permission:category_edit');
 
-        ////////////////////Webinaires////////////////////////////
-           Route::get('/admin/webinaires', [AdminController::class, 'webinaires'])
+    ////////////////////Webinaires////////////////////////////
+    Route::get('/admin/webinaires', [AdminController::class, 'webinaires'])
         ->name('webinaires');
-       
+
     Route::get('/admin/webinaire/add', [AdminController::class, 'webinaire_add'])
         ->name('webinaire.add');
-        Route::post('/online_classes/store', [AdminController::class, 'store'])->name('online_classes.store');
+    Route::post('/online_classes/store', [AdminController::class, 'store'])->name('online_classes.store');
 
-  
-             ////////////////Formations////////////////
-                Route::get('/admin/formations', [AdminController::class, 'formations'])
-                ->name('formations');
-            Route::get('/admin/formation/add', [AdminController::class, 'formation_add']);
-            Route::get('/admin/formation/{id}/update', [AdminController::class, 'formation_update']);
-            route::resource('deleteformation', FormationController::class);
-            route::resource('updateformation', FormationController::class);
-             Route::post('/webinaires/store', [FormationBackController::class, 'store'])->name('webinaires.store');
-        
-            Route::get('/admin/formation_update/{id}', [ FormationController::class, 'formation_update'])
-            ->name('formation.update');
-        
-            Route::get('/admin/inscriptions', [AdminController::class, 'inscriptions'])
-            ->name('list_inscriptions');
-           // Route::get('/admin/inscription/{id}/delete', [AdminController::class, 'inscription_delete']);
-            Route::delete('/admin/deleteinscriptions/{id}', [InscriptionController::class, 'destroy'])->name('inscriptions.destroy');
-            route::resource('deleteinscription', InscriptionController::class);
-            //Route::get('/admin/formation/{id}/delete', [AdminController::class, 'formation_delete']);
-        
+
+    ////////////////Formations////////////////
+    Route::get('/admin/formations', [AdminController::class, 'formations'])
+        ->name('formations');
+    Route::get('/admin/formation/add', [AdminController::class, 'formation_add']);
+    Route::get('/admin/formation/{id}/update', [AdminController::class, 'formation_update']);
+    route::resource('deleteformation', FormationController::class);
+    route::resource('updateformation', FormationController::class);
+    Route::post('/webinaires/store', [FormationBackController::class, 'store'])->name('webinaires.store');
+
+    Route::get('/admin/formation_update/{id}', [FormationController::class, 'formation_update'])
+        ->name('formation.update');
+
+    Route::get('/admin/inscriptions', [AdminController::class, 'inscriptions'])
+        ->name('list_inscriptions');
+    Route::delete('/admin/deleteinscriptions/{id}', [InscriptionController::class, 'destroy'])->name('inscriptions.destroy');
+    route::resource('deleteinscription', InscriptionController::class);
+   
     ///////////////Les services/////////////////////////////////
     Route::get('/admin/services', [AdminController::class, 'services'])
         ->name('services')
@@ -240,18 +235,17 @@ Route::middleware(['auth'])->group(function () {
         ->name('service.update')
         ->middleware('permission:service_edit');
 
-       /////////Testimonials///////////////////
-       Route::get('/admin/testimonials', [AdminController::class, 'testimonials'])
-       ->name('testimonials');
-       Route::get('/admin/testimonial/{id}/delete', [AdminController::class, 'testimonial_delete']);
-       Route::resource('testimonials', TestimonialController::class);
-       Route::get('temoignages/{id}/disapprove', [TestimonialController::class, 'disapprove'])->name('temoignages.disapprove');
-       Route::get('temoignages/{id}/approve', [TestimonialController::class, 'approve'])->name('temoignages.approve');
-      // Route::get('testimoniale/{id}/destroy', [TestimonialController::class, 'destroy'])->name('testimoniale.destroy');
-
+    /////////Testimonials///////////////////
+    Route::get('/admin/testimonials', [AdminController::class, 'testimonials'])
+        ->name('testimonials');
+    Route::get('/admin/testimonial/{id}/delete', [AdminController::class, 'testimonial_delete']);
+    Route::resource('testimonials', TestimonialController::class);
+    Route::get('temoignages/{id}/disapprove', [TestimonialController::class, 'disapprove'])->name('temoignages.disapprove');
+    Route::get('temoignages/{id}/approve', [TestimonialController::class, 'approve'])->name('temoignages.approve');
+  
     ////////////////////////Comments////////////////////////////////////////
     Route::get('/admin/comment', [AdminController::class, 'comment'])
-    ->name('comment');
+        ->name('comment');
     Route::get('/admin/comment/{id}/delete', [AdminController::class, 'testimonial_delete']);
     Route::resource('comment', CommentController::class);
     Route::get('comment/{id}/disapprove', [CommentController::class, 'disapprove'])->name('comment.disapprove');
@@ -259,94 +253,89 @@ Route::middleware(['auth'])->group(function () {
 
     /////////////////////////Les marques//////////////////////////////////////
     Route::get('/admin/marques', [AdminController::class, 'marques'])
-        ->name('marques');     
+        ->name('marques');
     /////////////////////////Les sponsors//////////////////////////////////////  
-    Route::get('/admin/sponsors', [SponsorController::class,'sponsors'])
-        ->name('sponsors');  
+    Route::get('/admin/sponsors', [SponsorController::class, 'sponsors'])
+        ->name('sponsors');
     route::resource('sponsors', SponsorController::class);
-   /*  Route::get('/admin/sponsor/{id}', [SponsorController::class, 'index_update'])
-    ->name('sponsor.update'); */
-        
-    Route::get('/admin/sponsor/add', [AdminController::class,'sponsor_add'])
+  
+    Route::get('/admin/sponsor/add', [AdminController::class, 'sponsor_add'])
         ->name('sponsor.add')
         ->middleware('permission:sponsor_add');
-     Route::get('/admin/sponsor_update/{id}', [SponsorController::class,'sponsor_update'])
+    Route::get('/admin/sponsor_update/{id}', [SponsorController::class, 'sponsor_update'])
         ->name('sponsor_update');
-       
-        /////////////////// events ////////////////////////////////////////
-        Route::get('/admin/events', [EventController::class, 'events'])
-            ->name('events')
-            ->middleware('permission:event_view');
-            route::resource('events', EventController::class);
-            Route::get('calendar', [ EventController::class, 'calendar' ])->name('calendar');
-   
-        Route::get('/admin/event_update/{id}', [ EventController::class, 'event_update'])
-            ->name('event_update');
 
-            Route::post('/meets/store', [BackEventController::class, 'store'])->name('meets.store');
-//Route::post('/meets/destroy', [BackEventController::class, 'deletemeet'])->name('meets.destroy');
-Route::delete('/meets/delete/{id}', [BackEventController::class, 'deletemeet'])->name('meets.destroy');
+    /////////////////// events ////////////////////////////////////////
+    Route::get('/admin/events', [EventController::class, 'events'])
+        ->name('events')
+        ->middleware('permission:event_view');
+    route::resource('events', EventController::class);
+    Route::get('calendar', [EventController::class, 'calendar'])->name('calendar');
 
-Route::get('/admin/events-inscriptions-list', [AdminController::class, 'inscriptions_evenements'])
-->name('events-inscriptions-list');
+    Route::get('/admin/event_update/{id}', [EventController::class, 'event_update'])
+        ->name('event_update');
 
-          
-         ////////////////////////Coachs/////////////////////
-         Route::get('/admin/coachs', [CoachController::class, 'coachs'])
-            ->name('coachs');
-            Route::get('/admin/coach_update/{id}', [ CoachController::class, 'coach_update'])
-            ->name('coach_update');
-           
-            
-            route::resource('coachs', CoachController::class);
-            Route::get('/admin/coach_update/{id}', [CoachController::class, 'coach_update'])
-            ->name('coach_update');
+    Route::post('/meets/store', [BackEventController::class, 'store'])->name('meets.store');
+    Route::delete('/meets/delete/{id}', [BackEventController::class, 'deletemeet'])->name('meets.destroy');
 
-        ///////////////////les  clients////////////////////////////////////////////////   
+    Route::get('/admin/events-inscriptions-list', [AdminController::class, 'inscriptions_evenements'])
+        ->name('events-inscriptions-list');
 
-        ///////////////////////////videos //////////////////
-        Route::get('/admin/videos', [AdminController::class, 'videos'])
-            ->name('videos')   
-            ->middleware('permission:video_view');
-            route::resource('videos', VideoController::class);
-            Route::post('video-upload', [ VideoController::class, 'uploadVideo' ])->name('store.video');
 
-        Route::get('/admin/video_update/{id}', [VideoController::class, 'video_update'])
-            ->name('video_update');
-           
-
-        ///////////////////////////////Images////////////////
-        Route::get('/admin/images', [AdminController::class, 'images'])
-            ->name('images')
-            ->middleware('permission:image_view');
-            Route::get('/admin/image_update/{id}', [ ImageController::class, 'image_update'])
-            ->name('image_update');
-          
-
-            route::resource('images', ImageController::class);
-        Route::get('/admin/image/add', [AdminController::class, 'image_add'])
-            ->name('image.add')
-            ->middleware('permission:image_add');
-        Route::get('/admin/image/{id}', [AdminController::class, 'image_update'])
-            ->name('image.update')
-            ->middleware('permission:image_edit');
-
+        ///////////////////Certifications//////////////////
+            Route::get('/admin/certifications', [CertificationController::class, 'certifications'])
+        ->name('certifications');
       
+    route::resource('certifications', CertificationController::class);
+    Route::get('calendar', [CertificationController::class, 'calendar'])->name('calendar');
 
-//////////////import client/////////////////////////////
+    Route::get('/admin/certification_update/{id}', [CertificationController::class, 'certification_update'])
+        ->name('certification_update');
 
-Route::post('import', [CustomerController::class, 'importExcelData']);
+    Route::get('/admin/certifications-inscriptions-list', [AdminController::class, 'inscriptions_certifications'])
+        ->name('certifications-inscriptions-list');
 
 
+    ////////////////////////Coachs/////////////////////
+    Route::get('/admin/coachs', [CoachController::class, 'coachs'])
+        ->name('coachs');
+    Route::get('/admin/coach_update/{id}', [CoachController::class, 'coach_update'])
+        ->name('coach_update');
+    route::resource('coachs', CoachController::class);
+    Route::get('/admin/coach_update/{id}', [CoachController::class, 'coach_update'])
+        ->name('coach_update');
+
+    ///////////////////les  clients////////////////////////////////////////////////   
+
+    ///////////////////////////videos //////////////////
+    Route::get('/admin/videos', [AdminController::class, 'videos'])
+        ->name('videos')
+        ->middleware('permission:video_view');
+    route::resource('videos', VideoController::class);
+    Route::post('video-upload', [VideoController::class, 'uploadVideo'])->name('store.video');
+
+    Route::get('/admin/video_update/{id}', [VideoController::class, 'video_update'])
+        ->name('video_update');
+    ///////////////////////////////Images////////////////
+    Route::get('/admin/images', [AdminController::class, 'images'])
+        ->name('images')
+        ->middleware('permission:image_view');
+    Route::get('/admin/image_update/{id}', [ImageController::class, 'image_update'])
+        ->name('image_update');
+    route::resource('images', ImageController::class);
+    Route::get('/admin/image/add', [AdminController::class, 'image_add'])
+        ->name('image.add')
+        ->middleware('permission:image_add');
+    Route::get('/admin/image/{id}', [AdminController::class, 'image_update'])
+        ->name('image.update')
+        ->middleware('permission:image_edit');
+
+    //////////////import client/////////////////////////////
+
+    Route::post('import', [CustomerController::class, 'importExcelData']);
 
     ///////////////////les  produits////////////////////////////////////////////////
     Route::prefix('admin')->group(function () {
-
- 
-
-
-
-
         Route::get('/produits', [AdminController::class, 'produits'])
             ->name('produits')
             ->middleware('permission:product_view');
@@ -382,27 +371,17 @@ Route::post('import', [CustomerController::class, 'importExcelData']);
 
 
 
-///////////////////////Blogs///////////////////////////////////
-            Route::get('/blogs', [AdminController::class, 'blogs'])
-->name('blogs');
+        ///////////////////////Blogs///////////////////////////////////
+        Route::get('/blogs', [AdminController::class, 'blogs'])
+            ->name('blogs');
 
+        Route::get('blog_update/{id}', [AdminController::class, 'blogs_update'])
+            ->name('blog.update');
 
-// Route::get('/corbeille', [AdminController::class, 'corbeille'])->name('corbeille');
-//Route::get('/blog/{id}/update', [AdminController::class, 'blogs_update'])
-//->name('blogs.update');
-
-Route::get('blog_update/{id}', [ AdminController::class, 'blogs_update'])
-->name('blog.update');
-
-Route::get('/blog/add', [AdminController::class, 'blog_add'])
-->name('blog.add');
-
+        Route::get('/blog/add', [AdminController::class, 'blog_add'])
+            ->name('blog.add');
     });
 
-
-
-    
-    
 
     Route::get('clients', [AdminController::class, 'clients'])
         ->name('clients')
@@ -432,12 +411,6 @@ Route::get('/blog/add', [AdminController::class, 'blog_add'])
     Route::get('/admin/commande/{id}/edit_commande', [AdminController::class, 'edit_commande'])
         ->name('edit_commande')
         ->middleware('permission:order_edit');
-
-
-
-
-
-
     Route::group(['middleware' => 'role:admin'], function () {
 
         Route::get('/admin/personnel/delete/{id}', [AdminController::class, 'delete_personnel'])
@@ -445,18 +418,11 @@ Route::get('/blog/add', [AdminController::class, 'blog_add'])
 
         Route::post('/admin/update-personnel-permissions', [AdminController::class, 'update_permission'])
             ->name('update-personnel-permissions');
-
-    
-
-        //gestion des routes pour le forumlaire de contact
         Route::get('/admin/admin_contact_form', [AdminController::class, 'admin_contact_form'])
             ->name('admin_contact_form');
 
         Route::get('/admin/supprimer_messages/{id}', [AdminController::class, 'supprimer_messages'])
             ->name('supprimer_messages');
-
-
-
 
         //getion des banniers
         Route::get('/admin/banner/index', [BannersController::class, 'index'])
@@ -464,24 +430,6 @@ Route::get('/blog/add', [AdminController::class, 'blog_add'])
         Route::get('/admin/banner/{id}', [BannersController::class, 'index_update'])
             ->name('banner.update');
     });
-
-
-
-
-    //reserver au developper
-    Route::group(['middleware' => 'developper'], function () {
-        Route::get('/admin/developper', [DevelopperController::class, 'developper'])
-            ->name('developper');
-        Route::get('/admin/add-template', [DevelopperController::class, 'add_template'])
-            ->name('add-template');
-        Route::get('/admin/edit-template/{id}', [DevelopperController::class, 'edit_template'])
-            ->name('edit-template');
-        Route::post('/admin/post-template', [DevelopperController::class, 'post_template'])
-            ->name('post-template');
-        Route::get('/admin/importation-excel', [DevelopperController::class, 'importation_excel'])
-            ->name('importation_excel');
-    });
-
 
 
 });

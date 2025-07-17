@@ -62,7 +62,8 @@
                                                     <select name="type" class="form-control" required>
                                                         <option value="">-- Choisir --</option>
                                                         <option value="formation">Formation</option>
-                                                        <option value="event">Certification</option>
+                                                        <option value="certification">Certification</option>
+                                                         <option value="event">Evènement</option>
                                                     </select>
                                                 </div>
 
@@ -87,6 +88,16 @@
                                                     </select>
                                                 </div>
 
+                                                  <div class="mb-3" id="certificationSelect" style="display: none;">
+                                                    <label for="certification_id">Certification</label>
+                                                    <select name="certification_id" class="form-control">
+                                                        <option value="">-- Choisir --</option>
+                                                        @foreach ($certifications as $event)
+                                                            <option value="{{ $event->id }}">{{ $event->titre }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+
                                                 <div class="mb-3">
                                                     <label for="start_at">Date et Heure</label>
                                                     <input type="datetime-local" name="start_at" class="form-control"
@@ -104,6 +115,37 @@
                                         </div>
 
                                         <script>
+    const typeSelect = document.querySelector('select[name="type"]');
+    const formationSelect = document.getElementById('formationSelect');
+    const eventSelect = document.getElementById('eventSelect');
+    const certificationSelect = document.getElementById('certificationSelect'); // 👈 ajout
+
+    typeSelect.addEventListener('change', function () {
+        const value = this.value;
+
+        // Masquer tous les selects
+        formationSelect.style.display = 'none';
+        eventSelect.style.display = 'none';
+        certificationSelect.style.display = 'none';
+
+        // Afficher le bon selon le type choisi
+        if (value === 'formation') {
+            formationSelect.style.display = 'block';
+        } else if (value === 'event') {
+            eventSelect.style.display = 'block';
+        } else if (value === 'certification') {
+            certificationSelect.style.display = 'block';
+        }
+    });
+
+    // Déclencher au chargement de la page (au cas où un type est déjà sélectionné)
+    window.addEventListener('DOMContentLoaded', function () {
+        typeSelect.dispatchEvent(new Event('change'));
+    });
+</script>
+
+
+                                       {{--  <script>
                                             const typeSelect = document.querySelector('select[name="type"]');
                                             const formationSelect = document.getElementById('formationSelect');
                                             const eventSelect = document.getElementById('eventSelect');
@@ -120,7 +162,7 @@
                                                     eventSelect.style.display = 'none';
                                                 }
                                             });
-                                        </script>
+                                        </script> --}}
                                     </div> <!-- end card body-->
                                 </div> <!-- end card -->
                             </div><!-- end col-->

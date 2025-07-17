@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\commandes;
 use App\Models\config;
 use App\Models\historiques_connexion;
-use App\Models\{Blog, produits, Category, Comment as ModelsComment, Marque, Contact, favoris, Formation, Inscription, Online_classe, Service, Testimonial};
+use App\Models\{Blog, produits, Category, Certification, Comment as ModelsComment, Marque, Contact, favoris, Formation, Inscription, Online_classe, Service, Testimonial};
 use App\Models\User;
 use App\Models\views;
 use Illuminate\Http\Request;
@@ -239,10 +239,71 @@ public function webinaire_add()
 {
      $formations = Formation::all();
       $events = Event::all();
-    return view('admin.webinaires.add', compact('formations','events'));
+      $certifications = Certification::all();
+    return view('admin.webinaires.add', compact('formations','events','certifications'));
 }
 
+
+
 public function store(Request $request)
+{
+    $request->validate([
+        'type' => 'required|in:formation,event,certification',
+        'topic' => 'required|string',
+        'start_at' => 'required|date',
+        'formation_id' => 'nullable|exists:formations,id',
+        'event_id' => 'nullable|exists:events,id',
+        'certification_id' => 'nullable|exists:certifications,id',
+    ]);
+
+    $meeting = $this->createMeeting($request);
+
+    $onlineClass = new Online_classe();
+    $onlineClass->user_id = auth()->id();
+    $onlineClass->meeting_id = $meeting->id;
+    $onlineClass->topic = $request->topic;
+    $onlineClass->start_at = $request->start_at;
+    $onlineClass->duration = $meeting->duration;
+    $onlineClass->password = $meeting->password;
+    $onlineClass->start_url = $meeting->start_url;
+    $onlineClass->join_url = $meeting->join_url;
+    $onlineClass->type = $request->type;
+
+    // Gestion des types
+    if ($request->type === 'formation') {
+        $onlineClass->formation_id = $request->formation_id;
+        $onlineClass->event_id = null;
+        $onlineClass->certification_id = null;
+    } elseif ($request->type === 'event') {
+        $onlineClass->event_id = $request->event_id;
+        $onlineClass->formation_id = null;
+        $onlineClass->certification_id = null;
+    } elseif ($request->type === 'certification') {
+        $onlineClass->certification_id = $request->certification_id;
+        $onlineClass->formation_id = null;
+        $onlineClass->event_id = null;
+    }
+
+    $onlineClass->save();
+
+    // Envoi des mails (optionnel)
+    $users = User::all();
+    $details = [
+        'topic' => $request->topic,
+        'join_url' => $meeting->join_url,
+        'duration' => $meeting->duration,
+    ];
+
+    foreach ($users as $user) {
+        // Notification::send($user, new SendEmailZoom($details));
+    }
+
+    return back()->with('ok', __('The class has been successfully created.'));
+}
+
+
+
+public function store1(Request $request)
 {
     $request->validate([
         'type' => 'required|in:formation,event',
@@ -250,6 +311,7 @@ public function store(Request $request)
         'start_at' => 'required|date',
         'formation_id' => 'nullable|exists:formations,id',
         'event_id' => 'nullable|exists:events,id',
+        
     ]);
 
     $meeting = $this->createMeeting($request);
@@ -350,8 +412,7 @@ public function blogs_update($id)
 public function formations()
 {
     $user = auth()->user();
-    // Retrieve all formations from the database
-    //$formations = Formation::all();
+  
     if ($user->role === 'admin') {
     $formations = Formation::all();
 } else {
@@ -359,12 +420,12 @@ public function formations()
 }
 
 
-    // Pass the formations to the view for rendering
+   
     return view('admin.formations.list', compact('formations'));
-   // return view('admin.formations.list');
+  
 }
 public function inscriptions(){
-  //  $inscriptions = Inscription::all();
+  
     $inscriptions = Inscription::with(['country', 'state', 'city', 'formation'])
         ->where('type', 'Formation')
         ->get();
@@ -386,6 +447,23 @@ public function inscriptions_evenements(){
                     ->where('type', 'Event')
                     ->get();
     return view('admin.evenements.list-inscriptions' , compact('inscriptions'));
+}
+
+
+/////////////////Certifications///////
+
+public function certifications()
+{
+    $certifications = Certification::all();
+    return view('admin.certifications.list', compact('certifications') );
+}
+
+public function inscriptions_certifications(){
+   // $inscriptions = Inscription::all();
+  $inscriptions = Inscription::with(['country', 'state', 'city', 'certification'])
+                    ->where('type', 'Certificationt')
+                    ->get();
+    return view('admin.certifications.list-inscriptions' , compact('inscriptions'));
 }
 
 
@@ -466,7 +544,7 @@ public function sponsor_update($id){
     public function personnels()
     {
         $personnels = User::where('role', 'personnel')->get();
-      // $personnels = User::all();
+    
         return view('admin.personnels.list', compact('personnels'));
     }
 

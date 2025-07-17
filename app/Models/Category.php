@@ -31,4 +31,9 @@ class Category extends Model
     {
         return $this->hasMany(Event::class, 'category_id', 'id');
     }
+
+      public function certifications()
+    {
+        return $this->hasMany(Certification::class, 'category_id', 'id');
+    }
 }
