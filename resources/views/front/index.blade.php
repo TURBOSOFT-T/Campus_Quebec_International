@@ -53,8 +53,8 @@
                                             <div class="hero-content">
                                                 <!-- Section Title Start -->
                                                 <div class="section-title">
-                                                    <p> {{ \App\Helpers\TranslationHelper::TranslateText('Bienvenue à Campus Québec International') }}</p>
-                                                    <h1 class="text-anime-style-2" data-cursor="-opaque">
+                                                   {{--  <p> {{ \App\Helpers\TranslationHelper::TranslateText('Bienvenue à Campus Québec International') }}</p>
+                                               --}}      <h1 class="text-anime-style-2" data-cursor="-opaque">
                                                         {!! \App\Helpers\TranslationHelper::TranslateText($banner->titre ?? ' ') !!}
                                                     </h1>
                                                     <p class="wow fadeInUp" data-wow-delay="0.25s"> {!! \App\Helpers\TranslationHelper::TranslateText($banner->sous_titre ?? ' ') !!}</p>

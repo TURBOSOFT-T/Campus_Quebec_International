@@ -15,32 +15,7 @@
 
         <body>
 
-            <!-- Page Header Start -->
-           {{--  <div class="page-header">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12">
-                        
-                            <div class="page-header-box">
-                                <h1 class="text-anime-style-2" data-cursor="-opaque">
-                                    {{ \App\Helpers\TranslationHelper::TranslateText('A propos de nous') }}</h1>
-                                <nav class="wow fadeInUp">
-                                    <ol class="breadcrumb">
-                                        <li class="breadcrumb-item"><a
-                                                href="./">{{ \App\Helpers\TranslationHelper::TranslateText('Accueil') }}</a>
-                                        </li>
-                                        <li class="breadcrumb-item active" aria-current="page">
-                                            {{ \App\Helpers\TranslationHelper::TranslateText('A propos de nous') }}</li>
-                                    </ol>
-                                </nav>
-                            </div>
-                            
-                        </div>
-                    </div>
-                </div>
-            </div> --}}
-            <!-- Page Header End -->
-
+         
             <!-- About Us Start -->
             <div class="about-us page-about-us">
                 <div class="container">
@@ -77,8 +52,19 @@
                                         {{ \App\Helpers\TranslationHelper::TranslateText('A propos de nous') }}</h3>
                                   {{--   <h2 class="text-anime-style-2" data-cursor="-opaque">We Are The Best For
                                         <span>Physiotherapy</span></h2> --}}
-                                    <p class="wow fadeInUp" data-wow-delay="0.25s">   {!! \App\Helpers\TranslationHelper::TranslateText($config->des_apropos ?? '') !!}</p>
-                                </div>
+                                   <p class="wow fadeInUp custom-paragraph" data-wow-delay="0.25s">
+    {!! \App\Helpers\TranslationHelper::TranslateText($config->des_apropos ?? '') !!}
+</p>
+
+<style>
+    .custom-paragraph {
+    font-size: 20px; /* ajuste la taille selon ton besoin */
+    line-height: 1.6;
+    font-weight: 500;
+}
+
+</style>
+ </div>
                                 <!-- Section Title End -->
 
                                 <!-- About Us Body Start -->

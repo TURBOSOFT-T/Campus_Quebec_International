@@ -300,6 +300,14 @@
                         </a>
                     </li> 
 
+                   <li class="menu-item">
+    <a href="{{ route('documents') }}" class="menu-link">
+        <i class="menu-icon tf-icons fas fa-file-alt"></i>
+        <div data-i18n="Documents">Documents</div>
+    </a>
+</li>
+
+
                     <!-- User interface -->
                      <li class="menu-item">
                         <a href="javascript:void(0)" class="menu-link menu-toggle">

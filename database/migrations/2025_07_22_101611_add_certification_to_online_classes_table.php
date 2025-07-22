@@ -11,9 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('documents', function (Blueprint $table) {
-            $table->id();
-
+        Schema::table('documents', function (Blueprint $table) {
              $table->unsignedBigInteger('formation_id')->nullable()->default(null);
               $table->unsignedBigInteger('certification_id')->nullable()->default(null);
             $table->unsignedBigInteger('event_id')->nullable()->default(null);
@@ -22,10 +20,8 @@ return new class extends Migration
           
             $table->string('titre')->nullable();
              $table->boolean('active')->default(true);
-              $table->string('file')->nullable(); 
-               $table->string('file_path')->nullable();  
+              $table->string('filename'); 
              $table->text('description')->nullable();
-            $table->timestamps();
         });
     }
 
@@ -34,6 +30,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('documents');
+        Schema::table('documents', function (Blueprint $table) {
+            //
+        });
     }
 };

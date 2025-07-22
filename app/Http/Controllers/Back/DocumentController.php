@@ -4,49 +4,101 @@ use App\Http\Controllers\Controller;
 use App\Models\Document;
 use App\Http\Requests\StoreDocumentRequest;
 use App\Http\Requests\UpdateDocumentRequest;
+use App\Models\User;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\Request;
 
 class DocumentController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
+   
+
+public function store(Request $request)
+{
+    $request->validate([
+        'type' => 'required|in:formation,event,certification',
+        'titre' => 'required|string',
+        'file' => 'nullable|file|mimes:pdf,doc,docx|max:5120',
+        'formation_id' => 'nullable|exists:formations,id',
+        'event_id' => 'nullable|exists:events,id',
+        'certification_id' => 'nullable|exists:certifications,id',
+    ]);
+
+    $document = new Document();
+    $document->user_id = auth()->id();
+    $document->titre = $request->titre;
+    $document->description = $request->description;
+    $document->type = $request->type;
+   //  $document->file = $request->file->store('documents', 'public');
+
+    // Gestion des types
+    if ($request->type === 'formation') {
+        $document->formation_id = $request->formation_id;
+        $document->event_id = null;
+        $document->certification_id = null;
+    } elseif ($request->type === 'event') {
+        $document->event_id = $request->event_id;
+        $document->formation_id = null;
+        $document->certification_id = null;
+    } elseif ($request->type === 'certification') {
+        $document->certification_id = $request->certification_id;
+        $document->formation_id = null;
+        $document->event_id = null;
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+
+    $document->save();
+
+    return back()->with('ok', __('The Document has been successfully created.'));
+}
+
+public function store1(Request $request)
+{
+    $request->validate([
+        'type' => 'required|in:formation,event,certification',
+        'titre' => 'required|string',
+      //  'filename' =>'nullable|file',
+     //  'file' => 'nullable|file|mimes:pdf,doc,docx',
+       'file' => 'nullable|file|mimes:pdf,doc,docx|max:5120', // 5120 = 5 Mo
+
+        'formation_id' => 'nullable|exists:formations,id',
+        'event_id' => 'nullable|exists:events,id',
+        'certification_id' => 'nullable|exists:certifications,id',
+    ]);
+
+    
+
+    $document = new Document();
+    $document->user_id = auth()->id();
+  
+    $document->titre = $request->titre;
+    $document->description = $request->description;
+
+  // $document->filename = $request->filename;
+  
+    $document->type = $request->type;
+
+    // Gestion des types
+    if ($request->type === 'formation') {
+        $document->formation_id = $request->formation_id;
+        $document->event_id = null;
+        $document->certification_id = null;
+    } elseif ($request->type === 'event') {
+        $document->event_id = $request->event_id;
+        $document->formation_id = null;
+        $document->certification_id = null;
+    } elseif ($request->type === 'certification') {
+        $document->certification_id = $request->certification_id;
+        $document->formation_id = null;
+        $document->event_id = null;
     }
 
-    public function store(StoreDocumentRequest $request)
-    {
-        $request->validate([
-            'titre' => 'required|string|max:255',
-            'fichier' => 'required|file|mimes:pdf,doc,docx|max:2048', // Validation du fichier
-            'cours_id' => 'nullable|exists:cours,id', // Validation du cours
-        ]);
-    
-        if ($request->hasFile('fichier')) {
-            $fichier = $request->file('fichier');
-            $fichierPath = $fichier->store('documents'); // Stockage du fichier dans le dossier 'documents'
-        }
-    
-        // Création du document
-        Document::create([
-            'titre' => $request->titre,
-            'fichier' => $fichierPath,
-            'cours_id' => $request->cours_id,
-        ]);
-    
-        return redirect()->route('documents.index')->with('success', 'Document ajouté avec succès.');
-    }
-    
+  
+ 
+    $document->save();
+
+  
+    return back()->with('ok', __('The Document has been successfully created.'));
+}
     /**
      * Display the specified resource.
      */

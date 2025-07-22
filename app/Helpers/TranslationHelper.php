@@ -6,7 +6,7 @@ use Stichoza\GoogleTranslate\GoogleTranslate;
 
 class TranslationHelper
 {
-public static function TranslateText($text)
+public static function TranslateText0($text)
 {
     $locale = app()->getLocale();
 
@@ -32,7 +32,7 @@ public static function TranslateText($text)
 
 
 
-    public static function TranslateText1($text)
+    public static function TranslateText($text)
     {
         $locale = app()->getLocale();
 

@@ -67,17 +67,18 @@
                     <!-- Topbar Contact Information Start -->
                     <div class="topbar-contact-info">
                         <ul>
-                            <li><a href="#"><img src="images/icon-phone.svg" alt=""> <a
-                                        href="https://wa.me/{{ preg_replace('/\D/', '', $config->telephone) }}"
-                                        target="_blank">
-                                        {{ $config->telephone }}
-
-
-                                    </a></a>
-                            </li>
-                            <li><a href="#"><img src="images/icon-mail.svg" alt=""> <a
-                                        href="mailto:nafiz125@gmail.com">{{ $config->email }}</a>
-                            </li>
+                              <li class="contact-item">
+            <a href="https://wa.me/{{ preg_replace('/\D/', '', $config->telephone) }}" target="_blank">
+                <img src="images/icon-phone.svg" alt="">
+                <span>{{ $config->telephone }}</span>
+            </a>
+        </li>
+        <li class="contact-item">
+            <a href="mailto:{{ $config->email }}">
+                <img src="images/icon-mail.svg" alt="">
+                <span>{{ $config->email }}</span>
+            </a>
+        </li>
                             <li class="hide-mobile"><a href="#"><img src="images/icon-location.svg"
                                         alt=""> {{ $config->addresse }}</a></li>
                         </ul>
@@ -157,7 +158,9 @@
                                 </li>
 <li class="nav-item">
     <a class="nav-link" href="{{ route('about') }}">
-        {{ ucfirst(\App\Helpers\TranslationHelper::TranslateText('A propos de nous')) }}
+       {{--  {{ ucfirst(\App\Helpers\TranslationHelper::TranslateText('A propos de nous')) }} --}}
+    
+    {{ __('about') }}
     </a>
 </li>
 

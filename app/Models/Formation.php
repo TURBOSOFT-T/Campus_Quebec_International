@@ -24,6 +24,11 @@ class Formation extends Model
         return $this->hasMany(Inscription::class);
     }
 
+    public function documents()
+{
+    return $this->hasMany(Document::class , 'user_id' , 'id');
+}
+
     public function online_classes()
     {
         return $this->hasMany(Online_classe::class);

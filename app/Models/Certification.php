@@ -69,4 +69,9 @@ class Certification extends Model
     {
         return $this->belongsTo(Category::class, 'category_id', 'id');
     }
+
+    public function documents()
+{
+    return $this->hasMany(Document::class , 'user_id' , 'id');
+}
 }

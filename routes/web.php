@@ -32,6 +32,7 @@ use App\Http\Controllers\Back\{
     EventController as BackEventController,
     CoursController as BackCoursController,
     VideoController,
+    
 };
 use App\Http\Controllers\CertificationController;
 use App\Http\Controllers\CustomerController;
@@ -41,7 +42,6 @@ use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\LocaleController;
 use App\Http\Controllers\CommentController;
-
 
 use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 
@@ -206,6 +206,13 @@ Route::middleware(['auth'])->group(function () {
         ->name('webinaire.add');
     Route::post('/online_classes/store', [AdminController::class, 'store'])->name('online_classes.store');
 
+    ////////////////////Documents////////////////////////////
+    Route::get('/admin/documents', [AdminController::class, 'documents'])
+        ->name('documents');
+
+    Route::get('/admin/document/add', [AdminController::class, 'document_add'])
+        ->name('document.add');
+    Route::post('/documents/store', [BacKDocumentController::class, 'store'])->name('documents.store');
 
     ////////////////Formations////////////////
     Route::get('/admin/formations', [AdminController::class, 'formations'])

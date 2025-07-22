@@ -109,4 +109,9 @@ public function formations()
 {
     return $this->hasMany(Formation::class , 'user_id' , 'id');
 }
+
+public function documents()
+{
+    return $this->hasMany(Document::class , 'user_id' , 'id');
+}
 }

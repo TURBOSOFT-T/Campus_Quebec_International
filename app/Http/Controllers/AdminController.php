@@ -244,7 +244,6 @@ public function webinaire_add()
 }
 
 
-
 public function store(Request $request)
 {
     $request->validate([
@@ -303,54 +302,6 @@ public function store(Request $request)
 
 
 
-public function store1(Request $request)
-{
-    $request->validate([
-        'type' => 'required|in:formation,event',
-        'topic' => 'required|string',
-        'start_at' => 'required|date',
-        'formation_id' => 'nullable|exists:formations,id',
-        'event_id' => 'nullable|exists:events,id',
-        
-    ]);
-
-    $meeting = $this->createMeeting($request);
-
-    $onlineClass = new Online_classe();
-    $onlineClass->user_id = auth()->id();
-    $onlineClass->meeting_id = $meeting->id;
-    $onlineClass->topic = $request->topic;
-    $onlineClass->start_at = $request->start_at;
-    $onlineClass->duration = $meeting->duration;
-    $onlineClass->password = $meeting->password;
-    $onlineClass->start_url = $meeting->start_url;
-    $onlineClass->join_url = $meeting->join_url;
-
-    // Définir le type
-    if ($request->type === 'formation') {
-        $onlineClass->formation_id = $request->formation_id;
-        $onlineClass->event_id = null;
-    } else {
-        $onlineClass->event_id = $request->event_id;
-        $onlineClass->formation_id = null;
-    }
-
-    $onlineClass->save();
-
-    // Envoi des mails (optionnel)
-    $users = User::all();
-    $details = [
-        'topic' => $request->topic,
-        'join_url' => $meeting->join_url,
-        'duration' => $meeting->duration,
-    ];
-
-    foreach ($users as $user) {
-        // Notification::send($user, new SendEmailZoom($details));
-    }
-
-    return back()->with('ok', __('The class has been successfully created.'));
-}
 
 
 public function webinaires()
@@ -361,6 +312,20 @@ public function webinaires()
 
 
 
+/////////////Les documents//////////////////
+public function document_add()
+{
+     $formations = Formation::all();
+      $events = Event::all();
+      $certifications = Certification::all();
+    return view('admin.documents.add', compact('formations','events','certifications'));
+}
+
+
+public function documents()
+{
+    return view('admin.documents.list');
+}
 
 //////////Services///////////////////////
 public function service_add()
