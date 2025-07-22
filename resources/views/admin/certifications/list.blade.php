@@ -289,7 +289,7 @@
                                                 </tr>
                                             @empty
                                                 <tr>
-                                                    <td colspan="9" class="text-center">Aucun évènement trouvé</td>
+                                                    <td colspan="9" class="text-center">Aucune certification trouvée</td>
                                                 </tr>
                                             @endforelse
  

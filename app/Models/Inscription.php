@@ -47,6 +47,11 @@ class Inscription extends Model
         return $this->belongsTo(Formation::class , 'formation_id', 'id');
     }
 
+      public function certification()
+    {
+        return $this->belongsTo(Certification::class , 'certification_id', 'id');
+    }
+
     public function event()
     {
         return $this->belongsTo(Event::class , 'event_id', 'id');

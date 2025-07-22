@@ -33,7 +33,7 @@
 
                     <th>Nom</th>
                    
-
+<th>Document</th>
                     <th> Date création</th>
                     <th style="text-align: right;">
                         <span wire:loading>
@@ -97,7 +97,38 @@
 
 
 
+<td>
+    {{-- @if ($cat->file)
+    <a href="{{ asset('storage/' . $cat->file) }}" target="_blank">
+        Télécharger le fichier
+    </a>
+@endif --}}
 
+@if ($cat->file)
+    <a href="{{ asset('storage/' . $cat->file) }}" target="_blank" class="custom-download-link">
+        📄 Télécharger le fichier
+    </a>
+@endif
+
+</td>
+
+<style>
+    .custom-download-link {
+    display: inline-block;
+    background-color: #3490dc;
+    color: white;
+    padding: 10px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.custom-download-link:hover {
+    background-color: #2779bd;
+}
+
+</style>
 
                     <td>{{ $cat->created_at->format('d/m/Y') }} </td>
                     <td style="text-align: right;">

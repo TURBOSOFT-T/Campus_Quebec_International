@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\commandes;
 use App\Models\config;
 use App\Models\historiques_connexion;
-use App\Models\{produits, Category, Comment, favoris as ModelsFavoris, Inscription, Online_classe};
+use App\Models\{produits, Category, Comment, Document, favoris as ModelsFavoris, Inscription, Online_classe};
 use App\Models\User;
 use App\Models\views;
 use Illuminate\Http\Request;
@@ -68,15 +68,77 @@ public function avatar(Request $request)
 
     return back()->with('success', 'Avatar updated successfully.');
 }
+public function account()
+{
+    $user = auth()->user();
+
+    // 🔍 Inscriptions avec relation formation, event, certification
+    $inscriptions = $user->inscriptions()
+        ->with(['event', 'formation', 'certification'])
+        ->paginate(10);
+
+    // 🔍 Extraire tous les IDs liés
+    $eventIds = $inscriptions->pluck('event_id')->filter()->unique();
+    $formationIds = $inscriptions->pluck('formation_id')->filter()->unique();
+    $certificationIds = $inscriptions->pluck('certification_id')->filter()->unique();
+
+    // 📅 Récupérer tous les cours en ligne liés à une de ces inscriptions
+    $onlineClasses = Online_classe::with(['events', 'formations', 'certifications'])
+        ->where(function ($query) use ($eventIds, $formationIds, $certificationIds) {
+            $query->whereIn('event_id', $eventIds)
+                  ->orWhereIn('formation_id', $formationIds)
+                  ->orWhereIn('certification_id', $certificationIds);
+        })
+        ->paginate(10);
 
 
-public function account(){
+          $documents = Document::with(['events', 'formations', 'certifications'])
+        ->where(function ($query) use ($eventIds, $formationIds, $certificationIds) {
+            $query->whereIn('event_id', $eventIds)
+                  ->orWhereIn('formation_id', $formationIds)
+                  ->orWhereIn('certification_id', $certificationIds);
+        })
+        ->paginate(10);
+
+    $totalZoomMeetings = $onlineClasses->total();
+    $totalDocuments  = $documents->total();
+
+    $totalInscription = $user->inscriptions()
+        ->whereIn('statut', ['livrée', 'payée'])
+        ->count();
+
+    $totalcomments = $user->comments()->count();
+
+    $comments = $user->comments()
+        ->with('blog')
+        ->whereNotNull('blog_id')
+        ->paginate(10);
+
+    $commentaires = Comment::whereHas('blog', function ($query) use ($user) {
+        $query->where('user_id', $user->id);
+    })->get();
+
+    $inscriptionsEnCours = $user->inscriptions()
+        ->whereIn('statut', ['attente', 'traitement', 'En cours livraison', 'planification'])
+        ->count();
+
+    return view('front.comptes.account', compact(
+        'totalZoomMeetings',
+        'totalInscription',
+        'totalcomments',
+        'inscriptionsEnCours',
+        'comments',
+        'inscriptions',
+        'onlineClasses', 'totalDocuments','documents'
+    ));
+}
+
+
+public function account2(){
 
     $user = Auth::user();
 
-    $inscriptions2 = Inscription::where('user_id', $user->id)
-    ->with('event', 'formation')  // Charger l'événement et la formation
-    ->paginate(10);;
+
    
     $inscriptions = $user->inscriptions()->with('event', 'formation')
     

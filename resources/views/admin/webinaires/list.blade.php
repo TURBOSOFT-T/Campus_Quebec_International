@@ -52,12 +52,12 @@
                                         <div class="input-group mb-3">
 
 
-                                            @can('category_add')
+                                           {{--  @can('category_add') --}}
                                                 <button class="btn btn-primary btn-sm  px-5"
                                                     onclick="url('{{ route('webinaire.add') }}')">
                                                     Ajouter un webinaire
                                                 </button>
-                                            @endcan
+                                           {{--  @endcan --}}
                                         </div>
                                     </div>
                                 </div>

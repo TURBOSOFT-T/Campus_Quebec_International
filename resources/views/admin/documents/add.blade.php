@@ -49,13 +49,19 @@
                                         <div class="container">
                                           
 
-                                            <form action="{{ route('documents.store') }}" method="POST">
+                                            <form action="{{ route('documents.store') }}" method="POST" enctype="multipart/form-data">
                                                 @csrf
 
                                                 <div class="mb-3">
                                                     <label for="topic">Titre</label>
                                                     <input type="text" name="titre" class="form-control" required>
                                                 </div>
+<div class="mb-3">
+                                                <input type="file" name="file" class="form-control" accept=".pdf,.doc,.docx">
+@error('file')
+    <small class="text-danger">{{ $message }}</small>
+@enderror
+</div>
 
                                                 {{--  <div class="mb-3">
                                                     <label for="topic">Le document</label>

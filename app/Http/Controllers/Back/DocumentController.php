@@ -45,7 +45,11 @@ public function store(Request $request)
         $document->event_id = null;
     }
 
-
+  // ✅ Gestion de l'upload
+    if ($request->hasFile('file')) {
+        $path = $request->file('file')->store('documents', 'public');
+        $document->file = $path; // On stocke le chemin complet
+    }
     $document->save();
 
     return back()->with('ok', __('The Document has been successfully created.'));

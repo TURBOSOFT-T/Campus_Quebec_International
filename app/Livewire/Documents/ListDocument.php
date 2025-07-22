@@ -14,13 +14,29 @@ class ListDocument extends Component
     public function render()
     {
 
-         $Query = Document::query();
+         /* $Query = Document::query();
         if(!is_null($this->key)){
             $Query->where('topic', 'like', '%'.$this->key.'%');
         }
          $Query->orderBy('created_at', 'desc');
         $documents = $Query->paginate(30);
-        $total = Document::count();
+        $total = Document::count(); */
+
+          $query = Document::query();
+
+    // 🔍 Restriction si l'utilisateur n'est pas admin
+    if (!auth()->user()->isAdmin()) {
+        $query->where('user_id', auth()->id());
+    }
+
+    // 🔍 Recherche par titre
+    if (!is_null($this->key)) {
+        $query->where('titre', 'like', '%' . $this->key . '%');
+    }
+
+    $documents = $query->orderBy('created_at', 'desc')->paginate(30);
+    $total = Document::count();
+
       
         return view('livewire.documents.list-document', compact('total', 'documents'));
     }

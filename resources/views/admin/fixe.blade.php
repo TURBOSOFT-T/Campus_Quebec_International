@@ -192,10 +192,12 @@
 
 
                     <li class="menu-item">
+                         @can('category_view')
                         <a href="javascript:void(0);" class="menu-link menu-toggle">
                             <i class="menu-icon tf-icons ti ti-category"></i>
                             <div data-i18n="Catégories">Catégories</div>
                         </a>
+                        @endcan
                         <ul class="menu-sub">
                             @can('category_view')
                                 <li class="menu-item">

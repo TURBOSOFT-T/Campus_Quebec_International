@@ -234,8 +234,26 @@ public function categories_update($id)
 }
 
 //////////////Les meetings//////////////
-
 public function webinaire_add()
+{
+    $user = auth()->user();
+
+    $formations = $user->isAdmin()
+        ? Formation::orderBy('titre')->get()
+        : Formation::where('user_id', $user->id)->orderBy('titre')->get();
+
+    $events = $user->isAdmin()
+        ? Event::orderBy('titre')->get()
+        : Event::where('user_id', $user->id)->orderBy('titre')->get();
+
+    $certifications = $user->isAdmin()
+        ? Certification::orderBy('titre')->get()
+        : Certification::where('user_id', $user->id)->orderBy('titre')->get();
+
+    return view('admin.webinaires.add', compact('formations', 'events', 'certifications'));
+}
+
+public function webinaire_add2()
 {
      $formations = Formation::all();
       $events = Event::all();
@@ -315,9 +333,21 @@ public function webinaires()
 /////////////Les documents//////////////////
 public function document_add()
 {
-     $formations = Formation::all();
+    /*  $formations = Formation::all();
       $events = Event::all();
-      $certifications = Certification::all();
+      $certifications = Certification::all(); */
+
+      $user = auth()->user();
+
+$formations = $user->isAdmin() ? Formation::orderBy('titre')->get()
+                               : Formation::where('user_id', $user->id)->orderBy('titre')->get();
+
+$events = $user->isAdmin() ? Event::orderBy('titre')->get()
+                           : Event::where('user_id', $user->id)->orderBy('titre')->get();
+
+$certifications = $user->isAdmin() ? Certification::orderBy('titre')->get()
+                                   : Certification::where('user_id', $user->id)->orderBy('titre')->get();
+
     return view('admin.documents.add', compact('formations','events','certifications'));
 }
 
@@ -419,7 +449,7 @@ public function inscriptions_evenements(){
 
 public function certifications()
 {
-    $certifications = Certification::all();
+    $certifications4 = Certification::all();
     return view('admin.certifications.list', compact('certifications') );
 }
 

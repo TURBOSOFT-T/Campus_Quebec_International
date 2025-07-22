@@ -9,11 +9,17 @@ use App\Http\Requests\UpdateCertificationRequest;
 class CertificationController extends Controller
 {
     
-     public function certifications()
+public function certifications()
 {
-    $certifications = Certification::all();
-    return view('admin.certifications.list', compact('certifications') );
+    $user = auth()->user();
+
+    $certifications = $user->isAdmin()
+        ? Certification::orderBy('created_at', 'desc')->get()
+        : Certification::where('user_id', $user->id)->orderBy('created_at', 'desc')->get();
+
+    return view('admin.certifications.list', compact('certifications'));
 }
+
 
  
 }
