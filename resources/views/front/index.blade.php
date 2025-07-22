@@ -203,14 +203,14 @@
         <!--  About Us End -->
 
         <!-- Gallery Carousel Section Start -->
-        <div class="gallery-carousel">
+    {{--     <div class="gallery-carousel">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <!-- Scrolling Content Start -->
+                      
                         <div class="gallery-carousel-box">
                             <div class="gallery-scrolling-content">
-                                <!-- Image Item Start -->
+                             
                                 @if($photos && count($photos) > 0)
                                 @foreach($photos as $photo)
                                 <div class="gallery-image">
@@ -222,15 +222,11 @@
                                 @else
                                 <p>Aucune photo disponible</p>
                                 @endif
-                                <!-- Image Item End -->
-
-
-
-                                <!-- Image Item End -->
+                              
                             </div>
 
                             <div class="gallery-scrolling-content">
-                                <!-- Image Item Start -->
+                              
                                 @if($photos && count($photos) > 0)
                                 @foreach($photos as $photo)
                                 <div class="gallery-image">
@@ -242,29 +238,18 @@
                                 @else
                                 <p>Aucune photo disponible</p>
                                 @endif
-                                <!-- Image Item End -->
-
-                                <!-- Image Item End -->
+                             
 
 
-                                <!-- Image Item End -->
-
-                                <!-- Image Item End -->
-
-                                <!-- Image Item End -->
-
-                                <!-- Image Item End -->
-
-
-                                <!-- Image Item End -->
+                              
                             </div>
                         </div>
-                        <!-- Scrolling Content End -->
+                      
                     </div>
                 </div>
             </div>
 
-        </div>
+        </div> --}}
         <!-- Gallery Carousel Section End -->
 
         <!-- Our Service Start -->
