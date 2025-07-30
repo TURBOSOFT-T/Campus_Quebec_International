@@ -422,7 +422,7 @@ $config = DB::table('configs')->first();
                 <div class="col-lg-3 col-md-4">
                     <!-- About Links Start -->
                     <div class="about-working-hour">
-                        <h3>{{ \App\Helpers\TranslationHelper::TranslateText('Horaires') }}</h3>
+                        <h3 style="color: white;">{{ \App\Helpers\TranslationHelper::TranslateText('Horaires') }}</h3>
                         <ul>
                             <li>mon to fri : 10:00 to 6:00</li>
                             <li>sat : 10:00AM to 3:00PM</li>
@@ -435,7 +435,7 @@ $config = DB::table('configs')->first();
                 <div class="col-lg-3 col-md-4">
                     <!-- About Links Start -->
                     <div class="about-service-list">
-                        <h3>{{ \App\Helpers\TranslationHelper::TranslateText('Pages') }}</h3>
+                        <h3 style="color: white;">{{ \App\Helpers\TranslationHelper::TranslateText('Pages') }}</h3>
                         <ul>
                             <li class="nav-item"><a href="{{ route('about') }}">{{ \App\Helpers\TranslationHelper::TranslateText('A propos de nous') }}</a>
                             </li>
@@ -455,7 +455,7 @@ $config = DB::table('configs')->first();
                 <div class="col-lg-3 col-md-4">
                     <!-- About Links Start -->
                     <div class="footer-contact">
-                        <h3>contact</h3>
+                        <h3 style="color: white;">contact</h3>
                         <!-- Footer Contact Details Start -->
                         <div class="footer-contact-details">
                             <!-- Footer Info Box Start -->
@@ -463,8 +463,8 @@ $config = DB::table('configs')->first();
                                 <div class="icon-box">
                                     <img src="images/icon-phone.svg" alt="">
                                 </div>
-                                <div class="footer-info-box-content">
-                                    <p><a href="https://wa.me/{{ preg_replace('/\D/', '', $config->telephone) }}" target="_blank">
+                                <div >
+                                    <p  style="color: white;"><a style="color: white;" href="https://wa.me/{{ preg_replace('/\D/', '', $config->telephone) }}" target="_blank">
                                             {{ $config->telephone }}
                                             <i class="fab fa-whatsapp"></i>
 
@@ -478,8 +478,8 @@ $config = DB::table('configs')->first();
                                 <div class="icon-box">
                                     <img src="images/icon-mail.svg" alt="">
                                 </div>
-                                <div class="footer-info-box-content">
-                                    <p><a href="mailto:nafiz125@gmail.com">{{ $config->email }}</p>
+                                <div style="color: white;" class="footer-info-box-content">
+                                    <p style="color: white;"><a style="color: white;" href="mailto:nafiz125@gmail.com">{{ $config->email }}</p>
                                 </div>
                             </div>
                             <!-- Footer Info Box End -->
@@ -490,7 +490,7 @@ $config = DB::table('configs')->first();
                                     <img src="images/icon-location.svg" alt="">
                                 </div>
                                 <div class="footer-info-box-content">
-                                    <p>{{ $config->addresse }}</p>
+                                    <p style="color: white;">{{ $config->addresse }}</p>
                                 </div>
                             </div>
                             <!-- Footer Info Box End -->
