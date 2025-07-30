@@ -159,27 +159,8 @@ $config = DB::table('configs')->first();
                                     </a>
                                 </li>
 
-                                {{-- <li class="nav-item"><a class="nav-link"
-                                        href="{{ route('about') }}">{{ \App\Helpers\TranslationHelper::TranslateText('A propos de nous') }}</a>
-                                </li> --}}
+                               
 
-                                {{-- <li class="nav-item submenu"><a class="nav-link" href="#">Formations</a>
-                                    <ul>                                        
-                                        <li class="nav-item"><a class="nav-link" href="#">Pending</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="#">Pending</a></li>
-                                      
-                                        
-                                    </ul>
-                                </li>
-
-                                 <li class="nav-item submenu"><a class="nav-link" href="#">Certifications</a>
-                                    <ul>                                        
-                                        <li class="nav-item"><a class="nav-link" href="#">Pending</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="#">Pending</a></li>
-                                      
-                                        
-                                    </ul>
-                                </li> --}}
                                 <li class="nav-item submenu"><a class="nav-link" href="#">{{ \App\Helpers\TranslationHelper::TranslateText('Services') }}</a>
                                     <ul> @foreach ($formations as $formation )
                                         <li class="nav-item"><a class="nav-link" href="{{ route('details-formations', ['id' => $formation->id, 'slug'=>Str::slug(Str::limit($formation->titre, 10))]) , }}">{{ \App\Helpers\TranslationHelper::TranslateText($formation->titre) }}</a></li>
