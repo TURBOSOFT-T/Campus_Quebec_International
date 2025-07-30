@@ -1,6 +1,6 @@
 @include('sweetalert::alert')
 @php
-    $config = DB::table('configs')->first();
+$config = DB::table('configs')->first();
 
 @endphp
 <!doctype html>
@@ -10,12 +10,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title> @yield('titre') - Campus Québec International</title>
-   
+
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-  
+
     <!-- Favicons -->
-    <link rel="apple-touch-icon" sizes="180x180"href="{{ Storage::url($config->icon) }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ Storage::url($config->icon) }}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ Storage::url($config->icon) }}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ Storage::url($config->icon) }}">
     <link rel="manifest" href="{{ Storage::url($config->icon) }}">
@@ -24,9 +24,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
     <!-- Bootstrap Css -->
     <link href="/css/bootstrap.min.css" rel="stylesheet" media="screen">
     <!-- SlickNav Css -->
@@ -46,12 +44,12 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-   
+
 
 
     @yield('blogs')
 
-  @livewireStyles
+    @livewireStyles
 </head>
 
 
@@ -67,20 +65,19 @@
                     <!-- Topbar Contact Information Start -->
                     <div class="topbar-contact-info">
                         <ul>
-                              <li class="contact-item">
-            <a href="https://wa.me/{{ preg_replace('/\D/', '', $config->telephone) }}" target="_blank">
-                <img src="images/icon-phone.svg" alt="">
-                <span>{{ $config->telephone }}</span>
-            </a>
-        </li>
-        <li class="contact-item">
-            <a href="mailto:{{ $config->email }}">
-                <img src="images/icon-mail.svg" alt="">
-                <span>{{ $config->email }}</span>
-            </a>
-        </li>
-                            <li class="hide-mobile"><a href="#"><img src="images/icon-location.svg"
-                                        alt=""> {{ $config->addresse }}</a></li>
+                            <li class="contact-item">
+                                <a href="https://wa.me/{{ preg_replace('/\D/', '', $config->telephone) }}" target="_blank">
+                                    <img src="images/icon-phone.svg" alt="">
+                                    <span>{{ $config->telephone }}</span>
+                                </a>
+                            </li>
+                            <li class="contact-item">
+                                <a href="mailto:{{ $config->email }}">
+                                    <img src="images/icon-mail.svg" alt="">
+                                    <span>{{ $config->email }}</span>
+                                </a>
+                            </li>
+                            <li class="hide-mobile"><a href="#"><img src="images/icon-location.svg" alt=""> {{ $config->addresse }}</a></li>
                         </ul>
                     </div>
                     <!-- Topbar Contact Information End -->
@@ -97,23 +94,19 @@
                         </ul> --}}
                         {{-- <ul style="list-style: none; display: flex; gap: 10px; padding: 0;">
                             @if ($config->facebook)
-                                <li><a href="{{ $config->facebook }}" target="_blank"><i
-                                            class="fa-brands fa-facebook-f"></i></a></li>
-                            @endif
+                                <li><a href="{{ $config->facebook }}" target="_blank"><i class="fa-brands fa-facebook-f"></i></a></li>
+                        @endif
 
-                            @if ($config->instagram)
-                                <li><a href="{{ $config->instagram }}" target="_blank"><i
-                                            class="fa-brands fa-instagram"></i></a></li>
-                            @endif
+                        @if ($config->instagram)
+                        <li><a href="{{ $config->instagram }}" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
+                        @endif
 
-                            @if ($config->tiktok)
-                                <li><a href="{{ $config->tiktok }}" target="_blank"><i
-                                            class="fa-brands fa-tiktok"></i></a></li>
-                            @endif
-                            @if ($config->youtube)
-                                <li><a href="{{ $config->youtube }}" target="_blank"><i
-                                            class="fa-brands fa-youtube"></i></a></li>
-                            @endif
+                        @if ($config->tiktok)
+                        <li><a href="{{ $config->tiktok }}" target="_blank"><i class="fa-brands fa-tiktok"></i></a></li>
+                        @endif
+                        @if ($config->youtube)
+                        <li><a href="{{ $config->youtube }}" target="_blank"><i class="fa-brands fa-youtube"></i></a></li>
+                        @endif
 
                         </ul> --}}
                     </div>
@@ -132,18 +125,20 @@
                 <div class="container">
 
                     <style>
-    .logo-small {
-    width: 100px;
-    height: 100px;
-}
-.logo-footer {
-    width: 100px;
-    height: 100px;
-}
-</style>
+                        .logo-small {
+                            width: 100px;
+                            height: 100px;
+                        }
+
+                        .logo-footer {
+                            width: 100px;
+                            height: 100px;
+                        }
+
+                    </style>
                     <!-- Logo Start -->
                     <a class="navbar-brand" href="./">
-                        <img src="{{ Storage::url($config->logo) }}"  class="logo-small" alt="Logo">
+                        <img src="{{ Storage::url($config->logo) }}" class="logo-small" alt="Logo">
                     </a>
                     <!-- Logo End -->
 
@@ -156,19 +151,19 @@
                                     </a>
 
                                 </li>
-<li class="nav-item">
-    <a class="nav-link" href="{{ route('about') }}">
-       {{--  {{ ucfirst(\App\Helpers\TranslationHelper::TranslateText('A propos de nous')) }} --}}
-    
-    {{ __('about') }}
-    </a>
-</li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('about') }}">
+                                         {{ ucfirst(\App\Helpers\TranslationHelper::TranslateText('A propos de nous')) }} 
+
+                                       
+                                    </a>
+                                </li>
 
                                 {{-- <li class="nav-item"><a class="nav-link"
                                         href="{{ route('about') }}">{{ \App\Helpers\TranslationHelper::TranslateText('A propos de nous') }}</a>
                                 </li> --}}
 
-                                {{--  <li class="nav-item submenu"><a class="nav-link" href="#">Formations</a>
+                                {{-- <li class="nav-item submenu"><a class="nav-link" href="#">Formations</a>
                                     <ul>                                        
                                         <li class="nav-item"><a class="nav-link" href="#">Pending</a></li>
                                         <li class="nav-item"><a class="nav-link" href="#">Pending</a></li>
@@ -185,18 +180,18 @@
                                         
                                     </ul>
                                 </li> --}}
-                                 <li class="nav-item submenu"><a class="nav-link" href="#">{{ \App\Helpers\TranslationHelper::TranslateText('Services') }}</a>
-                                    <ul>   @foreach ($formations as $formation )
-                                        <li class="nav-item"><a class="nav-link"  href="{{ route('details-formations', ['id' => $formation->id, 'slug'=>Str::slug(Str::limit($formation->titre, 10))]) , }}">{{ \App\Helpers\TranslationHelper::TranslateText($formation->titre) }}</a></li>
-                                        
-                                    @endforeach                                       
-                                        
-                                        
+                                <li class="nav-item submenu"><a class="nav-link" href="#">{{ \App\Helpers\TranslationHelper::TranslateText('Services') }}</a>
+                                    <ul> @foreach ($formations as $formation )
+                                        <li class="nav-item"><a class="nav-link" href="{{ route('details-formations', ['id' => $formation->id, 'slug'=>Str::slug(Str::limit($formation->titre, 10))]) , }}">{{ \App\Helpers\TranslationHelper::TranslateText($formation->titre) }}</a></li>
+
+                                        @endforeach
+
+
                                     </ul>
-                                </li> 
-                               {{--  <li class="nav-item"><a class="nav-link" href="#">
+                                </li>
+                                {{-- <li class="nav-item"><a class="nav-link" href="#">
                                         {{ \App\Helpers\TranslationHelper::TranslateText('Test offiels') }}
-                                    </a></li> --}}
+                                </a></li> --}}
 
 
                                 <li class="nav-item"><a class="nav-link" href="{{ route('contact') }}">
@@ -206,43 +201,41 @@
                                 @guest
 
 
-                                    <li class="nav-item">
-                                        <a href="{{ url('login') }}">Connexion</a>
-                                    </li>
+                                <li class="nav-item">
+                                    <a href="{{ url('login') }}">Connexion</a>
+                                </li>
                                 @else
-                                 
 
-                                     <li class="nav-item submenu"><a class="nav-link" href="#">
-                                         @if (auth()->user()->role != 'client')
-                                                Dashboard
-                                            @else
+
+                                <li class="nav-item submenu"><a class="nav-link" href="#">
+                                        @if (auth()->user()->role != 'client')
+                                        Dashboard
+                                        @else
+                                        {{ \App\Helpers\TranslationHelper::TranslateText('Mon compte') }}
+                                        @endif
+                                    </a>
+                                    <ul>
+                                        @if (auth()->user()->role != 'client')
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ url('dashboard') }}">Dashboard</a>
+                                        </li>
+                                        @endif
+
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('account') }}">
                                                 {{ \App\Helpers\TranslationHelper::TranslateText('Mon compte') }}
-                                            @endif
-                                     </a>
-                                    <ul>  
-                                         @if (auth()->user()->role != 'client')
-                                                <li  class="nav-item">
-                                                    <a class="nav-link" href="{{ url('dashboard') }}">Dashboard</a>
-                                                </li>
-                                            @endif   
-                                            
-                                              <li class="nav-item">
-                                                <a class="nav-link" href="{{ route('account') }}">
-                                                    {{ \App\Helpers\TranslationHelper::TranslateText('Mon compte') }}
-                                                </a>
-                                            </li>
+                                            </a>
+                                        </li>
 
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="{{ route('logout') }}"
-                                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
 
-                                                    {{ \App\Helpers\TranslationHelper::TranslateText('Déconnexion') }}
-                                                </a>
-                                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                                    style="display: none;">
-                                                    @csrf
-                                                </form>
-                                       
+                                                {{ \App\Helpers\TranslationHelper::TranslateText('Déconnexion') }}
+                                            </a>
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                @csrf
+                                            </form>
+
                                     </ul>
                                 </li>
 
@@ -258,39 +251,29 @@
                                             <div class="dropdown">
                                                 <button class="dropbtn">
                                                     @if (app()->getLocale() == 'fr')
-                                                        <img src="https://img.icons8.com/color/20/france-circular.png"
-                                                            alt="fr">
+                                                    <img src="https://img.icons8.com/color/20/france-circular.png" alt="fr">
                                                     @elseif(app()->getLocale() == 'en')
-                                                        <img src="https://img.icons8.com/color/20/great-britain-circular.png"
-                                                            alt="en">
+                                                    <img src="https://img.icons8.com/color/20/great-britain-circular.png" alt="en">
                                                     @elseif(app()->getLocale() == 'de')
-                                                        <img src="https://img.icons8.com/color/20/germany-circular.png"
-                                                            alt="de">
+                                                    <img src="https://img.icons8.com/color/20/germany-circular.png" alt="de">
                                                     @else
-                                                        <img src="https://img.icons8.com/color/20/france-circular.png"
-                                                            alt="fr">
+                                                    <img src="https://img.icons8.com/color/20/france-circular.png" alt="fr">
                                                     @endif
 
                                                 </button>
                                                 <div class="dropdown-content">
-                                                    <button type="submit" name="locale" value="fr"
-                                                        class="dropdown-item">
-                                                        <img src="https://img.icons8.com/color/20/france-circular.png"
-                                                            alt="fr">
+                                                    <button type="submit" name="locale" value="fr" class="dropdown-item">
+                                                        <img src="https://img.icons8.com/color/20/france-circular.png" alt="fr">
                                                         Français
                                                     </button>
-                                                    <button type="submit" name="locale" value="en"
-                                                        class="dropdown-item">
-                                                        <img src="https://img.icons8.com/color/20/great-britain-circular.png"
-                                                            alt="en">
+                                                    <button type="submit" name="locale" value="en" class="dropdown-item">
+                                                        <img src="https://img.icons8.com/color/20/great-britain-circular.png" alt="en">
                                                         English
                                                     </button>
-                                                      <button type="submit" name="locale" value="de"
-                                                        class="dropdown-item">
-                                                        <img src="https://img.icons8.com/color/20/germany-circular.png"
-                                                            alt="de">
+                                                    <button type="submit" name="locale" value="de" class="dropdown-item">
+                                                        <img src="https://img.icons8.com/color/20/germany-circular.png" alt="de">
                                                         Deutsch
-                                                    </button> 
+                                                    </button>
 
                                                 </div>
                                             </div>
@@ -364,6 +347,7 @@
                                                 padding: 5px 10px;
                                             }
                                         }
+
                                     </style>
 
                                 </li>
@@ -421,32 +405,28 @@
                             </ul> --}}
                             <ul style="list-style: none; display: flex; gap: 10px; padding: 0;">
                                 @if ($config->facebook)
-                                    <li><a href="{{ $config->facebook }}" target="_blank"><i
-                                                class="fa-brands fa-facebook-f"></i></a></li>
+                                <li><a href="{{ $config->facebook }}" target="_blank"><i class="fa-brands fa-facebook-f"></i></a></li>
                                 @endif
 
                                 @if ($config->instagram)
-                                    <li><a href="{{ $config->instagram }}" target="_blank"><i
-                                                class="fa-brands fa-instagram"></i></a></li>
+                                <li><a href="{{ $config->instagram }}" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
                                 @endif
 
                                 @if ($config->tiktok)
-                                    <li><a href="{{ $config->tiktok }}" target="_blank"><i
-                                                class="fa-brands fa-tiktok"></i></a></li>
+                                <li><a href="{{ $config->tiktok }}" target="_blank"><i class="fa-brands fa-tiktok"></i></a></li>
                                 @endif
                                 @if ($config->youtube)
-                                    <li><a href="{{ $config->youtube }}" target="_blank"><i
-                                                class="fa-brands fa-youtube"></i></a></li>
+                                <li><a href="{{ $config->youtube }}" target="_blank"><i class="fa-brands fa-youtube"></i></a></li>
                                 @endif
 
 
-                                 @if ($config->linkedin)
-    <li>
-        <a href="{{ $config->linkedin }}" target="_blank">
-            <i class="fa-brands fa-linkedin-in"></i>
-        </a>
-    </li>
-@endif
+                                @if ($config->linkedin)
+                                <li>
+                                    <a href="{{ $config->linkedin }}" target="_blank">
+                                        <i class="fa-brands fa-linkedin-in"></i>
+                                    </a>
+                                </li>
+                                @endif
 
 
                             </ul>
@@ -476,17 +456,16 @@
                     <div class="about-service-list">
                         <h3>{{ \App\Helpers\TranslationHelper::TranslateText('Pages') }}</h3>
                         <ul>
-                           <li class="nav-item"><a 
-                                        href="{{ route('about') }}">{{ \App\Helpers\TranslationHelper::TranslateText('A propos de nous') }}</a>
-                                </li>
+                            <li class="nav-item"><a href="{{ route('about') }}">{{ \App\Helpers\TranslationHelper::TranslateText('A propos de nous') }}</a>
+                            </li>
                             <li class="nav-item"><a class="nav-link" href="#">
-                                        {{ \App\Helpers\TranslationHelper::TranslateText('Actualités') }}
-                                    </a></li>
+                                    {{ \App\Helpers\TranslationHelper::TranslateText('Actualités') }}
+                                </a></li>
 
 
-                                <li class="nav-item"><a class="nav-link" href="{{ route('contact') }}">
-                                        {{ \App\Helpers\TranslationHelper::TranslateText('Contact') }}
-                                    </a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ route('contact') }}">
+                                    {{ \App\Helpers\TranslationHelper::TranslateText('Contact') }}
+                                </a></li>
                         </ul>
                     </div>
                     <!-- About Links End -->
@@ -504,8 +483,7 @@
                                     <img src="images/icon-phone.svg" alt="">
                                 </div>
                                 <div class="footer-info-box-content">
-                                    <p><a href="https://wa.me/{{ preg_replace('/\D/', '', $config->telephone) }}"
-                                            target="_blank">
+                                    <p><a href="https://wa.me/{{ preg_replace('/\D/', '', $config->telephone) }}" target="_blank">
                                             {{ $config->telephone }}
                                             <i class="fab fa-whatsapp"></i>
 
@@ -555,7 +533,7 @@
 
                     <div class="col-lg-6 col-md-6">
 
-                        {{--  <div class="footer-links">
+                        {{-- <div class="footer-links">
                             <ul>
                                 <li><a href="#">about us</a></li>
                                 <li><a href="#">services</a></li>
@@ -628,6 +606,7 @@
         .whatsapp-float i {
             font-size: 24px;
         }
+
     </style>
 
     <!-- Jquery Library File -->
@@ -662,7 +641,7 @@
     <!-- Main Custom js file -->
     <script src="/js/function.js"></script>
 
-       @livewireScripts
+    @livewireScripts
 
 </body>
 

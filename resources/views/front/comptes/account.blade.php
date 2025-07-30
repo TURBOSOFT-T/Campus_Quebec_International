@@ -40,7 +40,13 @@
                                             <a class="nav-item nav-link" data-bs-toggle="tab" href="#nav-meet"
                                                 role="tab" aria-selected="false"><i class="fas fa-video"
                                                     style="font-size: 20px; color: #9b59b6;"></i>
-                                                {{ \App\Helpers\TranslationHelper::TranslateText('Mes Meets') }}</a>
+                                                {{ \App\Helpers\TranslationHelper::TranslateText('Mes Meets') }}
+                                            
+                                                   @if (isset($totalZoomMeetings) && $totalZoomMeetings > 0)
+                                                    <span class="badge bg-dark ms-1">{{ $totalZoomMeetings }}</span>
+                                                @endif
+                                            </a>
+
 
                                             <a class="nav-item nav-link d-flex align-items-center gap-2"
                                                 data-bs-toggle="tab" href="#nav-documents" role="tab"

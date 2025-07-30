@@ -197,7 +197,7 @@ body{
 	line-height: 1.1em;
 	color: var(--white-color);
 	background: var(--accent-color);
-	text-transform: capitalize;
+	/* text-transform: capitalize; */
 	padding: 18px 55px 18px 20px;
 	border-radius: 99px;
 	border: none;
@@ -360,7 +360,7 @@ body{
 	font-size: 14px;
     font-weight: 700;
 	line-height: 1em;
-    text-transform: capitalize;
+   /*  text-transform: capitalize; */
 	background-color: var(--secondary-color);
     color: var(--accent-color);
 	border-radius: 99px;
@@ -542,7 +542,7 @@ header.main-header .header-sticky.active{
 	font-weight: 500;
 	padding: 14px 15px !important;
 	color: var(--primary-color);
-	text-transform: capitalize;
+	/* text-transform: capitalize; */
 	transition: all 0.3s ease-in-out;
 }
 
@@ -694,7 +694,7 @@ header.main-header .header-sticky.active{
 	position: relative;
 	font-size: 16px;
 	font-weight: 500;
-	text-transform: capitalize;
+	/* text-transform: capitalize; */
 	padding: 10px 20px;
 	color: var(--white-color);
 	line-height: normal;
@@ -776,7 +776,7 @@ header.main-header .header-sticky.active{
 
 .hero-counter-box p{
 	color: var(--primary-color);
-	text-transform: capitalize;
+	/* text-transform: capitalize; */
 	margin: 0;
 }
 
@@ -820,14 +820,14 @@ header.main-header .header-sticky.active{
 .export-doctor-content h3{
 	font-size: 20px;
 	font-weight: 500;
-	text-transform: capitalize;
+	/* text-transform: capitalize; */
 	margin-bottom: 5px;
 }
 
 .export-doctor-content p{
 	color: var(--primary-color);
 	opacity: 50%;
-	text-transform: capitalize;
+	/* text-transform: capitalize; */
 	margin: 0;
 }
 
@@ -1089,7 +1089,7 @@ header.main-header .header-sticky.active{
 	color: var(--white-color);
 	font-size: 20px;
 	font-weight: 600;
-	text-transform: capitalize;
+/* 	text-transform: capitalize; */
 	margin-bottom: 10px;
 }
 
@@ -1159,7 +1159,7 @@ header.main-header .header-sticky.active{
 	color: var(--primary-color);
 	font-family: var(--accent-font);
 	font-size: 14px;
-	text-transform: capitalize;
+	/* text-transform: capitalize; */
 	margin: 0;
 }
 
@@ -1193,7 +1193,7 @@ header.main-header .header-sticky.active{
 .about-list-content h3{
 	font-size: 18px;
 	font-weight: 500;
-	text-transform: capitalize;
+	/* text-transform: capitalize; */
 }
 
 .about-us-footer{
@@ -1231,7 +1231,7 @@ header.main-header .header-sticky.active{
 .doctor-info-item .doctor-info-content h3{
 	font-size: 20px;
 	font-weight: 500;
-	text-transform: capitalize;
+	/* text-transform: capitalize; */
 	margin-bottom: 5px;
 }
 
@@ -1366,7 +1366,7 @@ header.main-header .header-sticky.active{
 .service-item .service-body h3{
 	font-size: 20px;
 	font-weight: 600;
-	text-transform: capitalize;
+	/* text-transform: capitalize; */
 	margin-bottom: 20px;
 	transition: all 0.5s ease-in-out;
 }
@@ -1520,7 +1520,7 @@ header.main-header .header-sticky.active{
 
 .solution-counter-item .solution-counter-content p{
 	color: var(--primary-color);
-	text-transform: capitalize;
+	/* text-transform: capitalize; */
 	margin: 0;
 }
 
@@ -1625,7 +1625,7 @@ header.main-header .header-sticky.active{
 .why-choose-content h3{
 	font-size: 20px;
 	font-weight: 600;
-	text-transform: capitalize;
+/* 	text-transform: capitalize; */
 	margin-bottom: 10px;
 	transition: all 0.3s ease-in-out;
 }
@@ -1735,7 +1735,7 @@ header.main-header .header-sticky.active{
 	font-size: 18px;
 	font-weight: 500;
 	color: var(--white-color);
-	text-transform: capitalize;
+	/* text-transform: capitalize; */
 	margin: 0;
 }
 
@@ -1827,12 +1827,12 @@ header.main-header .header-sticky.active{
 
 .team-content h3{
 	font-size: 20px;
-	text-transform: capitalize;
+	/* text-transform: capitalize; */
 	margin-bottom: 10px;
 }
 
 .team-content p{
-	text-transform: capitalize;
+	/* text-transform: capitalize; */
 	margin: 0;
 }
 
@@ -1907,7 +1907,7 @@ header.main-header .header-sticky.active{
 .testimonial-body .author-content h3{
 	font-size: 20px;
 	font-weight: 600;
-	text-transform: capitalize;
+/* 	text-transform: capitalize; */
 }
 
 .testimonial-body .author-content{
@@ -1917,7 +1917,7 @@ header.main-header .header-sticky.active{
 .testimonial-body .author-content p{
 	color: var(--primary-color);
 	opacity: 70%;
-	text-transform: capitalize;
+/* 	text-transform: capitalize; */
 	margin: 0;
 }
 
@@ -1996,7 +1996,7 @@ header.main-header .header-sticky.active{
 	font-family: var(--accent-font);
     font-size: 18px;
     font-weight: 600;
-    text-transform: capitalize;
+   /*  text-transform: capitalize; */
     color: var(--accent-color);
     padding-right: 30px;
     transition: 0.3s ease-in-out;
@@ -2121,7 +2121,7 @@ header.main-header .header-sticky.active{
 	color: var(--accent-color);
 	font-size: 22px;
 	font-weight: 600;
-	text-transform: capitalize;
+	/* text-transform: capitalize; */
 	margin-bottom: 30px;
 }
 
@@ -2137,7 +2137,7 @@ header.main-header .header-sticky.active{
 
 .about-working-hour ul li{
 	color: var(--white-color);
-	text-transform: capitalize;
+	/* text-transform: capitalize; */
 	margin-bottom: 20px;
 }
 
@@ -2156,7 +2156,7 @@ header.main-header .header-sticky.active{
 }
 
 .about-service-list ul li{
-	text-transform: capitalize;
+	/* text-transform: capitalize; */
 	margin-bottom: 20px;
 }
 
@@ -2227,7 +2227,7 @@ header.main-header .header-sticky.active{
 
 .footer-links ul li a{
 	color: var(--white-color);
-	text-transform: capitalize;
+	/* text-transform: capitalize; */
 	transition: all 0.3s ease-in-out;
 }
 
@@ -2263,7 +2263,7 @@ header.main-header .header-sticky.active{
 	color: var(--primary-color);
 	font-size: 16px;
 	font-weight: 500;
-	text-transform: capitalize;
+	/* text-transform: capitalize; */
 }
 
 .page-header-box ol li.breadcrumb-item a{
@@ -2305,7 +2305,7 @@ header.main-header .header-sticky.active{
 .company-counter-item .company-counter-content p{
 	color: var(--white-color);
 	opacity: 70%;
-	text-transform: capitalize;
+/* 	text-transform: capitalize; */
 	margin: 0;
 }
 
@@ -2408,7 +2408,7 @@ header.main-header .header-sticky.active{
 .our-mva-item .mva-item-content h3{
 	font-size: 20px;
 	font-weight: 600;
-	text-transform: capitalize;
+	/* text-transform: capitalize; */
 	margin-bottom: 20px;
 	transition: all 0.3s ease-in-out;
 }
@@ -2461,7 +2461,7 @@ header.main-header .header-sticky.active{
 .cta-info-content .cta-content h3{
 	font-size: 20px;
 	font-weight: 600;
-	text-transform: capitalize;
+	/* text-transform: capitalize; */
 	margin-bottom: 20px;
 }
 
@@ -2584,7 +2584,7 @@ header.main-header .header-sticky.active{
 .quality-treatment-body ul li{
 	position: relative;
     color: var(--primary-color);
-    text-transform: capitalize;
+   /*  text-transform: capitalize; */
     padding-left: 30px;
 	margin-bottom: 20px;
 }
@@ -2671,7 +2671,7 @@ header.main-header .header-sticky.active{
 	font-size: 20px;
 	font-weight: 600;
 	line-height: 1.4em;
-	text-transform: capitalize;
+/* 	text-transform: capitalize; */
 	max-width: 220px;
 	margin: 0 auto;
 	margin-bottom: 20px;
@@ -2715,13 +2715,13 @@ header.main-header .header-sticky.active{
 
 .service-entry h2{
 	font-size: 54px;
-	text-transform: capitalize;
+	/* text-transform: capitalize; */
 	margin-bottom: 30px;
 }
 
 .service-entry h3{
 	font-size: 32px;
-	text-transform: capitalize;
+/* 	text-transform: capitalize; */
 	margin-bottom: 30px;
 }
 
@@ -2743,7 +2743,7 @@ header.main-header .header-sticky.active{
     position: relative;
     width: calc(50% - 10px);
     color: var(--primary-color);
-    text-transform: capitalize;
+   /*  text-transform: capitalize; */
     padding-left: 35px;
 }
 
@@ -2791,7 +2791,7 @@ header.main-header .header-sticky.active{
 .opening-hour-section h3{
 	font-size: 20px;
 	font-weight: 500;
-	text-transform: capitalize;
+	/* text-transform: capitalize; */
 	margin-bottom: 30px;
 }
 
@@ -2835,7 +2835,7 @@ header.main-header .header-sticky.active{
 	font-size: 18px;
 	font-weight: 500;
 	color: var(--primary-color);
-	text-transform: capitalize;
+	/* text-transform: capitalize; */
 	transition: all 0.3s ease-in-out;
 }
 
@@ -2851,7 +2851,7 @@ header.main-header .header-sticky.active{
 
 .opening-hour-section ul li{
 	color: var(--primary-color);
-	text-transform: capitalize;
+	/* text-transform: capitalize; */
 	margin-bottom: 10px;
 }
 
@@ -3116,7 +3116,7 @@ header.main-header .header-sticky.active{
     display: inline-block;
     font-size: 18px;
     font-weight: 600;
-    text-transform: capitalize;
+   /*  text-transform: capitalize; */
     background-color: var(--accent-color);
     color: var(--white-color);
 	border-radius: 10px;
@@ -3236,7 +3236,7 @@ header.main-header .header-sticky.active{
 
 .member-detail-header p{
 	font-size: 18px;
-	text-transform: capitalize;
+	/* text-transform: capitalize; */
 	color: var(--white-color);
 	margin: 0;
 }
@@ -3247,7 +3247,7 @@ header.main-header .header-sticky.active{
 
 .member-detail-content p{
 	font-size: 18px;
-	text-transform: capitalize;
+	/* text-transform: capitalize; */
 	color: var(--white-color);
 }
 
@@ -3328,7 +3328,7 @@ header.main-header .header-sticky.active{
 
 .member-info-title h2{
 	font-size: 32px;
-	text-transform: capitalize;
+	/* text-transform: capitalize; */
 }
 
 .member-info-content p:last-child{
@@ -3347,7 +3347,7 @@ header.main-header .header-sticky.active{
 
 .winning-awards-content h2{
 	font-size: 32px;
-	text-transform: capitalize;
+	/* text-transform: capitalize; */
 	margin-bottom: 30px;
 }
 
@@ -3400,7 +3400,7 @@ header.main-header .header-sticky.active{
 
 .member-skills-title h2{
 	font-size: 32px;
-	text-transform: capitalize;
+	/* text-transform: capitalize; */
 }
 
 .team-member-skills .skills-progress-bar{
@@ -3421,7 +3421,7 @@ header.main-header .header-sticky.active{
 	font-size: 20px;
 	font-weight: 500;
 	color: var(--primary-color);
-	text-transform: capitalize;
+	/* text-transform: capitalize; */
 }
 
 .skillbar .skill-data .skill-no{
@@ -3598,7 +3598,7 @@ header.main-header .header-sticky.active{
 	font-size: 18px;
 	font-weight: 500;
 	color: var(--primary-color);
-	text-transform: capitalize;
+	/* text-transform: capitalize; */
 	transition: all 0.3s ease-in-out;
 }
 
@@ -3662,7 +3662,7 @@ header.main-header .header-sticky.active{
 .accordion-header .accordion-button{
 	font-size: 18px;
 	font-weight: 700;
-	text-transform: capitalize;
+	/* text-transform: capitalize; */
 	padding: 20px 45px 20px 20px;
 }
 
@@ -3708,7 +3708,7 @@ header.main-header .header-sticky.active{
 .contact-info-item .contact-info-content h3{
 	font-size: 20px;
 	font-weight: 600;
-	text-transform: capitalize;
+	/* text-transform: capitalize; */
 	margin-bottom: 20px;
 }
 
