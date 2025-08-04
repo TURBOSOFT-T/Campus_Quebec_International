@@ -71,7 +71,7 @@ $produit = DB::table('produits')->get();
                         <div class="contact-info-content">
                             <h3>email</h3>
                             <p>
-                                <a href="mailto:tim.jennings@example.com">{{ $config->email }}</a>
+                                <a style="color: #606262;" href="mailto:tim.jennings@example.com">{{ $config->email }}</a>
 
                             </p>
 
@@ -94,7 +94,7 @@ $produit = DB::table('produits')->get();
                         <div class="contact-info-content">
                             <h3>{{ \App\Helpers\TranslationHelper::TranslateText('Téléphone') }}</h3>
                             <p>
-                                <a href="https://wa.me/{{ preg_replace('/\D/', '', $config->telephone) }}" target="_blank">
+                                <a style="color: #606262;" href="https://wa.me/{{ preg_replace('/\D/', '', $config->telephone) }}" target="_blank">
                                     {{ $config->telephone }}
                                     <i class="fab fa-whatsapp"></i>
 

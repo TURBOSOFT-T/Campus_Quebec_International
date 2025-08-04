@@ -97,11 +97,11 @@
 
                                                   <td>
 
-                                                        <button type="button" class="btn btn-success"
+                                                      {{--   <button type="button" class="btn btn-success"
                                                                 data-bs-toggle="modal" title="Ajouter une leçon"
                                                                 data-bs-target="#addLeconModal{{ $formation->id }}">
                                                                 Ajouter meet
-                                                            </button>
+                                                            </button> --}}
 
                                                               <div class="modal fade"
                                                                     id="addLeconModal{{ $formation->id }}" tabindex="-1"
@@ -163,10 +163,10 @@
                                                                     </div>
                                                                 </div>
 
-                                                     <button type="button" class="btn btn-primary"
+                                                    {{--  <button type="button" class="btn btn-primary"
                                                                 data-bs-toggle="modal"
                                                                 data-bs-target="#exampleModalDefault({{ $formation->id }})">
-                                                                Voir meets</button>
+                                                                Voir meets</button> --}}
                                                             <div class="modal fade"
                                                                 id="exampleModalDefault({{ $formation->id }})"
                                                                 tabindex="-1">

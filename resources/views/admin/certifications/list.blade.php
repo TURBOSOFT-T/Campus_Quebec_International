@@ -102,10 +102,10 @@
 
                                                         <div class="row">
 
-                                                            <button type="button" class="btn btn-primary"
+                                                           {{--  <button type="button" class="btn btn-primary"
                                                                 data-bs-toggle="modal"
                                                                 data-bs-target="#exampleModalDefault({{ $certification->id }})">
-                                                                Voir meets</button>
+                                                                Voir meets</button> --}}
                                                             <div class="modal fade"
                                                                 id="exampleModalDefault({{ $certification->id }})"
                                                                 tabindex="-1">

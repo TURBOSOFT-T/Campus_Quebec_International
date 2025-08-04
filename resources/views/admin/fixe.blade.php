@@ -246,6 +246,7 @@
                             <div data-i18n="Actualités">Actualités</div>
                             <div class="badge bg-primary rounded-pill ms-auto"></div>
                         </a>
+                         @can('blog_view')
                         <ul class="menu-sub">
                             <li class="menu-item">
                                 <a href="{{ route('blogs') }}" class="menu-link">
@@ -253,7 +254,8 @@
                                 </a>
                             </li>
                         </ul>
-
+                        @endcan
+ @can('blog_add')
                         <ul class="menu-sub">
                             <li class="menu-item">
                                 <a href="{{ route('blog.add') }}" class="menu-link">
@@ -261,6 +263,7 @@
                                 </a>
                             </li>
                         </ul>
+                        @endcan
 
                         {{--  <ul class="menu-sub">
                             <li class="menu-item">
@@ -316,6 +319,7 @@
                             <i class="menu-icon tf-icons ti ti-color-swatch"></i>
                             <div data-i18n="Certifications">Certifications</div>
                         </a>
+                         @can('certification_view')
                         <ul class="menu-sub">
                             <li class="menu-item">
                                 <a href="{{ route('certifications') }}" class="menu-link">
@@ -326,8 +330,9 @@
 
 
                         </ul>
-                        
-                        <ul class="menu-sub">
+                        @endcan
+                        @can('inscription_view')
+                             <ul class="menu-sub">
                             <li class="menu-item">
                                 <a href="{{ route('certifications-inscriptions-list') }}" class="menu-link">
                                     <div data-i18n=" Inscriptions ">Inscriptions</div>
@@ -338,6 +343,9 @@
 
                         </ul> 
 
+                        @endcan
+                        
+                       
 
                     </li> 
 

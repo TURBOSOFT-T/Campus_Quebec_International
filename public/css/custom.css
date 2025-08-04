@@ -42,16 +42,18 @@
 /************************************/	
 
 :root{
-	--primary-color			: #545791;
+	--primary-color			: #003DA5;
 	--secondary-color		: #E6EFED;
 	--text-color			: #153C33B3;
 	--accent-color			: #4c6583;
-	--white-color			: #FFFFFF;
+	/* --white-color			: #FFFFFF; */
+	--white-color			: #C3C4C6;
 	--divider-color			: #FFFFFF26;
 	--dark-divider-color	: #153C331A;
 	--error-color			: rgb(230, 87, 87);
 	--accent-font			: "Archivo", sans-serif;
 	--default-font			: "DM Sans", sans-serif;
+	--text                   :#C3C4C6;
 }
 
 /************************************/
