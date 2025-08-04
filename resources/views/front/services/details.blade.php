@@ -90,8 +90,8 @@
     <!-- Page Service Single End -->
     
     <!-- Our Scrolling Ticker Section Start -->
-   <div class="our-scrolling-ticker">
-                <!-- Scrolling Ticker Start -->
+{{--    <div class="our-scrolling-ticker">
+            
                 <div class="scrolling-ticker-box">
                     <div class="scrolling-content">
                         <span><img src="images/icon-sparkles.svg" alt="">Emergency No. : {{ $config->telephone }}</span>
@@ -104,7 +104,7 @@
 
                     
                 </div>
-            </div>
+            </div> --}}
 	<!-- Scrolling Ticker Section End -->  
 
     </main>

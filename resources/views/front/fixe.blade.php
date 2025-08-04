@@ -466,7 +466,7 @@ $config = DB::table('configs')->first();
                                 <div >
                                     <p  style="color: white;"><a style="color: white;" href="https://wa.me/{{ preg_replace('/\D/', '', $config->telephone) }}" target="_blank">
                                             {{ $config->telephone }}
-                                            <i class="fab fa-whatsapp"></i>
+                                           {{--  <i class="fab fa-whatsapp"></i> --}}
 
                                         </a></p>
                                 </div>

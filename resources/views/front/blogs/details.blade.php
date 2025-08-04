@@ -152,8 +152,8 @@
     <!-- Page Single Post End -->  
 
     <!-- Our Scrolling Ticker Section Start -->
-    <div class="our-scrolling-ticker">
-        <!-- Scrolling Ticker Start -->
+{{--     <div class="our-scrolling-ticker">
+       
         <div class="scrolling-ticker-box">
             <div class="scrolling-content">
                 <span><img src="images/icon-sparkles.svg" alt="">Emergency No. : (+01) 789 856 258</span>
@@ -169,7 +169,7 @@
                 <span><img src="images/icon-sparkles.svg" alt="">Working Hourse : Mon to Fri : 10:00 To 6:00 </span>
             </div>
         </div>
-    </div>
+    </div> --}}
 	<!-- Scrolling Ticker Section End -->  
 
 </body>

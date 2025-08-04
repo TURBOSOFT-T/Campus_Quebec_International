@@ -54,10 +54,10 @@
                                                 <!-- Section Title Start -->
                                                 <div class="section-title">
                                                    {{--  <p> {{ \App\Helpers\TranslationHelper::TranslateText('Bienvenue à Campus Québec International') }}</p>
-                                               --}}      <h1 class="text-anime-style-2" data-cursor="-opaque">
+                                               --}}      <h1 class="text-anime-style-2" style="color: white;"data-cursor="-opaque">
                                                         {!! \App\Helpers\TranslationHelper::TranslateText($banner->titre ?? ' ') !!}
                                                     </h1>
-                                                    <p class="wow fadeInUp" data-wow-delay="0.25s"> {!! \App\Helpers\TranslationHelper::TranslateText($banner->sous_titre ?? ' ') !!}</p>
+                                                    <p class="wow fadeInUp" style="color: white;" data-wow-delay="0.25s"> {!! \App\Helpers\TranslationHelper::TranslateText($banner->sous_titre ?? ' ') !!}</p>
                                                 </div>
                                                 <!-- Section Title End -->
 
@@ -490,8 +490,8 @@
         <!-- Our Blog End -->
 
         <!-- Our Scrolling Ticker Section Start -->
-        <div class="our-scrolling-ticker">
-            <!-- Scrolling Ticker Start -->
+       {{--  <div class="our-scrolling-ticker">
+            
             <div class="scrolling-ticker-box">
                 <div class="scrolling-content">
                     <span><img src="images/icon-sparkles.svg" alt="">Emergency No. : {{ $config->telephone }}</span>
@@ -502,7 +502,7 @@
                         6:00 </span>
                 </div>
             </div>
-        </div>
+        </div> --}}
         <!-- Scrolling Ticker Section End -->
 
 
